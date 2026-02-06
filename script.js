@@ -1,55 +1,61 @@
-// Mobile menu
-const toggle = document.querySelector(".nav__toggle");
-const menu = document.querySelector("#navMenu");
-
-if (toggle && menu) {
-  toggle.addEventListener("click", () => {
-    const isOpen = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isOpen));
-    menu.style.display = isOpen ? "none" : "flex";
-    menu.style.flexDirection = "column";
-    menu.style.gap = "10px";
-    menu.style.position = "absolute";
-    menu.style.right = "12px";
-    menu.style.top = "62px";
-    menu.style.background = "white";
-    menu.style.padding = "12px";
-    menu.style.border = "1px solid rgba(14,23,38,0.08)";
-    menu.style.borderRadius = "14px";
-    menu.style.boxShadow = "0 16px 40px rgba(14,23,38,0.12)";
-  });
-
-  // close menu after click
-  menu.addEventListener("click", (e) => {
-    if (e.target.matches("a")) {
-      toggle.setAttribute("aria-expanded", "false");
-      menu.style.display = "none";
-    }
-  });
-
-  // close menu on resize to desktop
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 820) {
-      toggle.setAttribute("aria-expanded", "false");
-      menu.style.display = "flex";
-      menu.style.position = "static";
-      menu.style.padding = "0";
-      menu.style.border = "0";
-      menu.style.boxShadow = "none";
-      menu.style.flexDirection = "row";
-      menu.style.background = "transparent";
-    } else {
-      menu.style.display = "none";
-    }
-  });
-}
-
 // Footer year
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
 
+// Mobile menu (class-based, bez inline styli)
+const toggle = document.querySelector(".nav__toggle");
+const menu = document.querySelector("#navMenu");
+
+function closeMenu() {
+  if (!toggle || !menu) return;
+  toggle.classList.remove("is-active");
+  toggle.setAttribute("aria-expanded", "false");
+  menu.classList.remove("is-open");
+}
+
+function openMenu() {
+  if (!toggle || !menu) return;
+  toggle.classList.add("is-active");
+  toggle.setAttribute("aria-expanded", "true");
+  menu.classList.add("is-open");
+}
+
+if (toggle && menu) {
+  // start state
+  toggle.setAttribute("aria-expanded", "false");
+  menu.classList.remove("is-open");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.classList.contains("is-active");
+    if (isOpen) closeMenu();
+    else openMenu();
+  });
+
+  // zamykanie po kliknięciu linka
+  menu.addEventListener("click", (e) => {
+    if (e.target.matches("a")) closeMenu();
+  });
+
+  // zamykanie po kliknięciu poza menu (UX)
+  document.addEventListener("click", (e) => {
+    const clickedInside = menu.contains(e.target) || toggle.contains(e.target);
+    if (!clickedInside) closeMenu();
+  });
+
+  // ESC zamyka menu (UX)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // reset na desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 820) closeMenu();
+  });
+}
+
 // Reveal on scroll (lekko + SEO-friendly)
 const reveals = document.querySelectorAll(".reveal");
+
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {

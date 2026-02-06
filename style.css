@@ -45,7 +45,9 @@ img{ max-width:100%; display:block; }
 }
 .skip:focus{ left: 12px; z-index: 1000; }
 
-/* TOPBAR */
+/* =========================
+   TOPBAR
+========================= */
 .topbar{
   position: sticky;
   top:0;
@@ -54,13 +56,16 @@ img{ max-width:100%; display:block; }
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
+
 .topbar__inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap: 12px;
   padding: 10px 0;
+  position: relative; /* pod menu mobilne */
 }
+
 .brand__logo{
   width: 44px;
   height: 44px;
@@ -69,8 +74,15 @@ img{ max-width:100%; display:block; }
   background: #fff;
 }
 
-/* NAV */
-.nav{ display:flex; align-items:center; gap: 12px; }
+/* =========================
+   NAV
+========================= */
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
 .nav__toggle{
   display:inline-flex;
   align-items:center;
@@ -81,33 +93,84 @@ img{ max-width:100%; display:block; }
   border: 1px solid var(--border);
   background: var(--surface);
   box-shadow: 0 6px 18px rgba(14,23,38,0.08);
+  cursor: pointer;
 }
+
+/* hamburger */
 .nav__bars{
   width: 18px;
   height: 2px;
   background: var(--text);
   position: relative;
   border-radius: 999px;
+  transition: background .2s ease;
 }
 .nav__bars::before,
 .nav__bars::after{
   content:"";
   position:absolute;
   left:0;
-  width:18px;height:2px;
+  width:18px;
+  height:2px;
   background: var(--text);
   border-radius: 999px;
+  transition: transform .25s ease, top .25s ease;
 }
 .nav__bars::before{ top:-6px; }
 .nav__bars::after{ top:6px; }
 
+/* hamburger -> X */
+.nav__toggle.is-active .nav__bars{
+  background: transparent;
+}
+.nav__toggle.is-active .nav__bars::before{
+  top:0;
+  transform: rotate(45deg);
+}
+.nav__toggle.is-active .nav__bars::after{
+  top:0;
+  transform: rotate(-45deg);
+}
+
 .nav__menu{
-  display:none;
+  /* desktop będzie nadpisane w media */
   list-style:none;
   margin:0;
   padding:0;
   gap: 18px;
 }
+
+/* MOBILE MENU – domyślnie ukryte, ale animowalne */
+.nav__menu{
+  position: absolute;
+  top: 62px;
+  right: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  background: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 40px rgba(14,23,38,0.12);
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: opacity .25s ease, transform .25s ease;
+  will-change: opacity, transform;
+}
+
+/* OTWARTE */
+.nav__menu.is-open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 .nav__link{
   text-decoration:none;
   color: var(--muted);
@@ -115,6 +178,7 @@ img{ max-width:100%; display:block; }
   font-size: 14px;
   padding: 10px 10px;
   border-radius: 12px;
+  display:inline-block;
 }
 .nav__link:hover{ color: var(--text); background: rgba(30,100,255,0.08); }
 
@@ -123,7 +187,8 @@ img{ max-width:100%; display:block; }
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width: 44px;height:44px;
+  width: 44px;
+  height:44px;
   border-radius: 999px;
   background: var(--brand);
   color:#fff;
@@ -131,7 +196,9 @@ img{ max-width:100%; display:block; }
   box-shadow: 0 12px 26px rgba(30,100,255,0.25);
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero{ padding: 18px 0 22px; }
 .hero__inner{ display:flex; flex-direction:column; gap: 14px; }
 
@@ -194,7 +261,9 @@ img{ max-width:100%; display:block; }
   border-color: rgba(30,100,255,0.25);
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 .card-section{ padding: 14px 0 26px; }
 .card{
   background: var(--surface);
@@ -237,7 +306,9 @@ img{ max-width:100%; display:block; }
   text-decoration:none;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
 .section{ padding: 34px 0; }
 .section__title{
   margin:0;
@@ -250,7 +321,9 @@ img{ max-width:100%; display:block; }
   line-height: 1.7;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 .footer{
   border-top: 1px solid var(--border);
   padding: 18px 0 30px;
@@ -266,7 +339,9 @@ img{ max-width:100%; display:block; }
 }
 .footer__link{ color: var(--brand); text-decoration:none; font-weight: 700; }
 
-/* REVEAL ANIMATIONS */
+/* =========================
+   REVEAL ANIMATIONS
+========================= */
 .reveal{
   opacity: 0;
   transform: translateY(10px);
@@ -278,10 +353,27 @@ img{ max-width:100%; display:block; }
   transform: translateY(0);
 }
 
-/* ========== BREAKPOINTY (laptop/desktop) ========== */
+/* =========================
+   BREAKPOINTY (laptop/desktop)
+========================= */
 @media (min-width: 820px){
   .nav__toggle{ display:none; }
-  .nav__menu{ display:flex; }
+
+  /* desktop menu wraca do normalnego flow */
+  .nav__menu{
+    position: static;
+    flex-direction: row;
+    gap: 18px;
+
+    background: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
 
   .hero{ padding: 28px 0 22px; }
   .hero__title{ font-size: 38px; }
