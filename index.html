@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiatr & Woda Dębki – apartamenty i pokoje blisko morza i lasu</title>
+  <meta name="description" content="Wiatr & Woda w Dębkach – komfortowe apartamenty i pokoje blisko morza oraz sosnowego lasu. Zarezerwuj pobyt lub zadzwoń." />
+  <link rel="canonical" href="https://twojadomena.pl/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Wiatr & Woda Dębki – apartamenty i pokoje" />
+  <meta property="og:description" content="Blisko morza i lasu. Komfortowe noclegi w Dębkach." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og.jpg" />
+  <meta name="theme-color" content="#1E64FF" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LodgingBusiness",
+    "name":"Wiatr & Woda Dębki",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Dębki",
+      "addressCountry":"PL"
+    },
+    "telephone":"+48XXXXXXXXX",
+    "url":"https://twojadomena.pl/"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Przejdź do treści</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home" aria-label="Wiatr & Woda – strona główna">
+        <!-- podmień na swoje logo -->
+        <img class="brand__logo" src="logo.png" alt="Wiatr & Woda Dębki" width="64" height="64" />
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja główna">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__bars" aria-hidden="true"></span>
+          <span class="sr-only">Otwórz menu</span>
+        </button>
+
+        <ul id="navMenu" class="nav__menu">
+          <li><a class="nav__link" href="#oferta">Oferta</a></li>
+          <li><a class="nav__link" href="#galeria">Galeria</a></li>
+          <li><a class="nav__link" href="#debki">Dębki</a></li>
+          <li><a class="nav__link" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <a class="callfab" href="tel:+48XXXXXXXXX" aria-label="Zadzwoń">
+        ☎
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__heading reveal" data-delay="0.1">
+          <h1 class="hero__title">Poczuj szum fal i zapach sosnowego lasu</h1>
+          <p class="hero__subtitle">Apartamenty i pokoje w Dębkach blisko morza i lasu</p>
+        </div>
+
+        <figure class="hero__media reveal" data-delay="0.25">
+          <img
+            class="hero__img"
+            src="Zdjęcie nr 1.JPG"
+            alt="Zachód słońca nad morzem w Dębkach"
+            loading="eager"
+            decoding="async"
+            width="1600"
+            height="900"
+            style="object-fit:cover; max-height:500px; width:100%; border-radius:16px;"
+          />
+        </figure>
+
+        <div class="hero__cta reveal" data-delay="0.35">
+          <a class="btn btn--primary" href="#kontakt">Zarezerwuj pobyt</a>
+          <a class="btn btn--ghost" href="tel:+48XXXXXXXXX">Zadzwoń</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card-section">
+      <div class="container">
+        <article class="card reveal" data-delay="0.1">
+          <h2 class="card__title">Wiatr &amp; Woda</h2>
+          <p class="card__lead">Twoim miejscem na niezapomniane chwile w Dębkach!</p>
+
+          <div class="card__divider" aria-hidden="true"></div>
+
+          <p class="card__text">
+            Odkryj piękno polskiego wybrzeża, odpoczywając na szerokiej, piaszczystej plaży
+            czy spacerując po lesie Nadmorskiego Parku Krajobrazowego.
+          </p>
+          <p class="card__text">
+            Nasz obiekt został wybudowany w 2025 roku i jest położony w bardzo dobrej lokalizacji –
+            przy cichej ulicy Rybakiej, blisko morza i centrum.
+          </p>
+
+          <a class="card__link" href="#oferta">Odwiedź nas i poczuj nadmorski klimat – czekamy na Ciebie przez cały rok!</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Placeholder sekcje (na razie) -->
+    <section id="oferta" class="section">
+      <div class="container">
+        <h2 class="section__title reveal">Oferta</h2>
+        <p class="section__text reveal" data-delay="0.1">Tu wstawimy kafle ofertowe (bez dostępności), zakres cen np. 250–750 zł i opisy.</p>
+      </div>
+    </section>
+
+    <section id="galeria" class="section">
+      <div class="container">
+        <h2 class="section__title reveal">Galeria</h2>
+        <p class="section__text reveal" data-delay="0.1">Tu wstawimy grid zdjęć + lightbox.</p>
+      </div>
+    </section>
+
+    <section id="debki" class="section">
+      <div class="container">
+        <h2 class="section__title reveal">Dębki</h2>
+        <p class="section__text reveal" data-delay="0.1">Tu wstawimy opis miejscówki + mapkę.</p>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section">
+      <div class="container">
+        <h2 class="section__title reveal">Kontakt</h2>
+        <p class="section__text reveal" data-delay="0.1">Telefon, adres, formularz i mapa.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Wiatr &amp; Woda Dębki</p>
+      <a class="footer__link" href="#home">Wróć na górę</a>
+    </div>
+  </footer>
+</body>
+</html>
