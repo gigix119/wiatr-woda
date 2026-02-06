@@ -2,7 +2,7 @@
 const y = document.getElementById("year");
 if (y) y.textContent = new Date().getFullYear();
 
-// Mobile menu (class-based, bez inline styli)
+// Mobile menu
 const toggle = document.querySelector(".nav__toggle");
 const menu = document.querySelector("#navMenu");
 
@@ -21,7 +21,6 @@ function openMenu() {
 }
 
 if (toggle && menu) {
-  // start state
   toggle.setAttribute("aria-expanded", "false");
   menu.classList.remove("is-open");
 
@@ -31,31 +30,56 @@ if (toggle && menu) {
     else openMenu();
   });
 
-  // zamykanie po kliknięciu linka
   menu.addEventListener("click", (e) => {
     if (e.target.matches("a")) closeMenu();
   });
 
-  // zamykanie po kliknięciu poza menu (UX)
   document.addEventListener("click", (e) => {
     const clickedInside = menu.contains(e.target) || toggle.contains(e.target);
     if (!clickedInside) closeMenu();
   });
 
-  // ESC zamyka menu (UX)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
 
-  // reset na desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 820) closeMenu();
   });
 }
 
+// Smooth scroll with sticky header offset (dla hash linków)
+function getHeaderOffset() {
+  const header = document.querySelector(".topbar");
+  return header ? header.getBoundingClientRect().height + 10 : 80;
+}
+
+function scrollToHash(hash) {
+  const el = document.querySelector(hash);
+  if (!el) return;
+
+  const top = el.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+
+  const hash = a.getAttribute("href");
+  if (!hash || hash === "#") return;
+
+  const target = document.querySelector(hash);
+  if (!target) return;
+
+  e.preventDefault();
+  closeMenu();
+  scrollToHash(hash);
+  history.pushState(null, "", hash);
+});
+
 // Reveal on scroll (lekko + SEO-friendly)
 const reveals = document.querySelectorAll(".reveal");
-
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -68,3 +92,125 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 reveals.forEach(el => io.observe(el));
+
+// LIGHTBOX (Galeria)
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const galleryItems = document.querySelectorAll(".gallery__item");
+
+function openLightbox(src, alt="") {
+  if (!lightbox || !lightboxImg) return;
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  if (!lightbox || !lightboxImg) return;
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImg.src = "";
+  document.body.style.overflow = "";
+}
+
+galleryItems.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const full = btn.getAttribute("data-full");
+    const img = btn.querySelector("img");
+    openLightbox(full, img ? img.alt : "");
+  });
+});
+
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("is-open")) closeLightbox();
+  });
+}
+
+// Formularz — walidacja + mailto (bez backendu)
+const form = document.getElementById("contactForm");
+const toast = document.getElementById("formToast");
+
+function setError(field, msg) {
+  const wrap = field.closest(".field");
+  if (!wrap) return;
+  const err = wrap.querySelector(".field__error");
+  if (err) err.textContent = msg || "";
+}
+
+function clearErrors() {
+  form?.querySelectorAll(".field__error").forEach(e => e.textContent = "");
+}
+
+function showToast(msg) {
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.classList.add("is-open");
+  setTimeout(() => toast.classList.remove("is-open"), 6000);
+}
+
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const fd = new FormData(form);
+    const name = String(fd.get("name") || "").trim();
+    const phone = String(fd.get("phone") || "").trim();
+    const email = String(fd.get("email") || "").trim();
+    const from = String(fd.get("from") || "").trim();
+    const to = String(fd.get("to") || "").trim();
+    const message = String(fd.get("message") || "").trim();
+
+    let ok = true;
+
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (name.length < 2) { ok = false; setError(form.elements.name, "Podaj imię i nazwisko (min. 2 znaki)."); }
+    if (phone.length < 7) { ok = false; setError(form.elements.phone, "Podaj poprawny numer telefonu."); }
+    if (!emailOk) { ok = false; setError(form.elements.email, "Podaj poprawny adres e-mail."); }
+    if (!from) { ok = false; setError(form.elements.from, "Wybierz datę przyjazdu."); }
+    if (!to) { ok = false; setError(form.elements.to, "Wybierz datę wyjazdu."); }
+    if (message.length < 10) { ok = false; setError(form.elements.message, "Wiadomość musi mieć min. 10 znaków."); }
+
+    if (from && to) {
+      const d1 = new Date(from);
+      const d2 = new Date(to);
+      if (d2 <= d1) {
+        ok = false;
+        setError(form.elements.to, "Data wyjazdu musi być po dacie przyjazdu.");
+      }
+    }
+
+    if (!ok) {
+      showToast("Uzupełnij poprawnie formularz 🙂");
+      return;
+    }
+
+    // mailto fallback (działa bez backendu)
+    const subject = encodeURIComponent("Zapytanie o rezerwację – Wiatr & Woda Dębki");
+    const body = encodeURIComponent(
+`Imię i nazwisko: ${name}
+Telefon: ${phone}
+E-mail: ${email}
+Data przyjazdu: ${from}
+Data wyjazdu: ${to}
+
+Wiadomość:
+${message}`
+    );
+
+    // Podmień na właściwy e-mail:
+    const toEmail = "kontakt@twojadomena.pl";
+    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+
+    showToast("Otwieram Twoją aplikację pocztową…");
+    form.reset();
+  });
+}
