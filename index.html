@@ -175,6 +175,17 @@
 
         <div class="offer__grid">
           <article class="offer reveal" data-delay="0.05">
+            <div class="offer__carousel" data-carousel>
+              <div class="carousel__track">
+                <img class="carousel__slide" src="assets/apart.jpg" alt="Apartament – widok główny" loading="lazy" />
+                <img class="carousel__slide" src="assets/apar.jpg" alt="Apartament – wnętrze" loading="lazy" />
+                <img class="carousel__slide" src="assets/toilet.jpg" alt="Apartament – łazienka" loading="lazy" />
+                <img class="carousel__slide" src="assets/balkon.jpg" alt="Apartament – balkon" loading="lazy" />
+              </div>
+              <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+              <button class="carousel__btn carousel__btn--next" type="button" aria-label="Następne zdjęcie">›</button>
+              <div class="carousel__dots"></div>
+            </div>
             <div class="offer__top">
               <h3 class="offer__title">Apartament 4 os.</h3>
               <span class="offer__price">250–750 zł</span>
@@ -192,6 +203,16 @@
           </article>
 
           <article class="offer reveal" data-delay="0.10">
+            <div class="offer__carousel" data-carousel>
+              <div class="carousel__track">
+                <img class="carousel__slide" src="assets/pokoj.jpg" alt="Pokój – widok główny" loading="lazy" />
+                <img class="carousel__slide" src="assets/pokoik.jpg" alt="Pokój – wnętrze" loading="lazy" />
+                <img class="carousel__slide" src="assets/lazienk.jpg" alt="Pokój – łazienka" loading="lazy" />
+              </div>
+              <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+              <button class="carousel__btn carousel__btn--next" type="button" aria-label="Następne zdjęcie">›</button>
+              <div class="carousel__dots"></div>
+            </div>
             <div class="offer__top">
               <h3 class="offer__title">Pokój 2 os.</h3>
               <span class="offer__price">150–300 zł</span>
@@ -220,19 +241,43 @@
         </header>
 
         <div class="gallery">
-          <!-- podmień/rozszerz listę zdjęć -->
           <button class="gallery__item reveal" data-delay="0.04" type="button"
-            data-full="assets/gallery-1.JPG" aria-label="Otwórz zdjęcie 1">
-            <img src="assets/gallery-1.JPG" alt="Zachód słońca nad morzem" loading="lazy" decoding="async">
+            data-full="assets/dom.jpg" aria-label="Otwórz zdjęcie – budynek">
+            <img src="assets/dom.jpg" alt="Budynek Wiatr & Woda" loading="lazy" decoding="async">
           </button>
 
           <button class="gallery__item reveal" data-delay="0.08" type="button"
-            data-full="assets/gallery-2.jpg" aria-label="Otwórz zdjęcie 2">
-            <img src="assets/gallery-2.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            data-full="assets/grill.jpg" aria-label="Otwórz zdjęcie – grill">
+            <img src="assets/grill.jpg" alt="Strefa grillowa" loading="lazy" decoding="async">
           </button>
 
           <button class="gallery__item reveal" data-delay="0.12" type="button"
-            data-full="assets/gallery-3.jpg" aria-label="Otwórz zdjęcie 3">
+            data-full="assets/ogrod.jpg" aria-label="Otwórz zdjęcie – ogród">
+            <img src="assets/ogrod.jpg" alt="Ogród" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.16" type="button"
+            data-full="assets/plac.jpg" aria-label="Otwórz zdjęcie – plac zabaw">
+            <img src="assets/plac.jpg" alt="Plac zabaw" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.20" type="button"
+            data-full="assets/zabaw.jpg" aria-label="Otwórz zdjęcie – strefa zabaw">
+            <img src="assets/zabaw.jpg" alt="Strefa zabaw dla dzieci" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.24" type="button"
+            data-full="assets/gallery-1.JPG" aria-label="Otwórz zdjęcie – zachód słońca">
+            <img src="assets/gallery-1.JPG" alt="Zachód słońca nad morzem" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.28" type="button"
+            data-full="assets/gallery-2.jpg" aria-label="Otwórz zdjęcie – plaża">
+            <img src="assets/gallery-2.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.32" type="button"
+            data-full="assets/gallery-3.jpg" aria-label="Otwórz zdjęcie – okolica">
             <img src="assets/gallery-3.jpg" alt="Okolica i natura" loading="lazy" decoding="async">
           </button>
         </div>

@@ -133,6 +133,44 @@ if (lightbox) {
   });
 }
 
+// CAROUSEL (oferta)
+document.querySelectorAll("[data-carousel]").forEach(carousel => {
+  const track = carousel.querySelector(".carousel__track");
+  const slides = carousel.querySelectorAll(".carousel__slide");
+  const prevBtn = carousel.querySelector(".carousel__btn--prev");
+  const nextBtn = carousel.querySelector(".carousel__btn--next");
+  const dotsWrap = carousel.querySelector(".carousel__dots");
+  let idx = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "carousel__dot" + (i === 0 ? " is-active" : "");
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Zdjęcie ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dotsWrap.querySelectorAll(".carousel__dot").forEach((d, j) => {
+      d.classList.toggle("is-active", j === idx);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => goTo(idx - 1));
+  nextBtn.addEventListener("click", () => goTo(idx + 1));
+
+  // Swipe support
+  let startX = 0;
+  carousel.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
+  carousel.addEventListener("touchend", e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(idx + (diff > 0 ? 1 : -1));
+  });
+});
+
 // Formularz — walidacja + mailto (bez backendu)
 const form = document.getElementById("contactForm");
 const toast = document.getElementById("formToast");
