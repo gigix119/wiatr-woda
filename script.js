@@ -207,7 +207,7 @@ ${message}`
     );
 
     // Podmień na właściwy e-mail:
-    const toEmail = "kontakt@twojadomena.pl";
+    const toEmail = "wiatr.woda.debki@gmail.com";
     window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
 
     showToast("Otwieram Twoją aplikację pocztową…");

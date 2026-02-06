@@ -769,14 +769,14 @@ a{ color: inherit; }
 ========================= */
 .drop{
   opacity: 0;
-  transform: translateY(-14px);
-  filter: blur(6px);
-  animation: dropIn 0.85s cubic-bezier(.2,.95,.2,1) forwards;
+  transform: translateY(-20px);
+  filter: blur(8px);
+  animation: dropIn 1s cubic-bezier(.2,.95,.2,1) forwards;
 }
-.drop--1{ animation-delay: .05s; }
-.drop--2{ animation-delay: .16s; }
-.drop--3{ animation-delay: .26s; }
-.drop--4{ animation-delay: .36s; }
+.drop--1{ animation-delay: .4s; }
+.drop--2{ animation-delay: .6s; }
+.drop--3{ animation-delay: .8s; }
+.drop--4{ animation-delay: 1s; }
 
 @keyframes dropIn{
   to{
@@ -791,20 +791,22 @@ a{ color: inherit; }
 ========================= */
 .reveal{
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .7s ease, transform .7s ease;
-  will-change: opacity, transform;
+  transform: translateY(18px);
+  filter: blur(4px);
+  transition: opacity .8s cubic-bezier(.2,.95,.2,1), transform .8s cubic-bezier(.2,.95,.2,1), filter .8s ease;
+  will-change: opacity, transform, filter;
 }
 .reveal.is-visible{
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   .drop{ animation: none; opacity: 1; transform: none; filter: none; }
-  .reveal{ opacity: 1; transform: none; transition: none; }
+  .reveal{ opacity: 1; transform: none; filter: none; transition: none; }
 }
 
 /* =========================
