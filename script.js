@@ -366,3 +366,24 @@ ${message}`
     });
   });
 })();
+// ===== Regulamin: ScrollSpy (podświetlanie aktywnej sekcji) =====
+const regSections = document.querySelectorAll(".reg-section[id]");
+const regLinks = document.querySelectorAll(".reg-nav__link");
+
+function setActiveRegLink() {
+  if (!regSections.length || !regLinks.length) return;
+
+  let currentId = regSections[0].id;
+
+  regSections.forEach((section) => {
+    const top = section.getBoundingClientRect().top;
+    if (top <= 140) currentId = section.id;
+  });
+
+  regLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${currentId}`);
+  });
+}
+
+window.addEventListener("scroll", setActiveRegLink);
+window.addEventListener("load", setActiveRegLink);
