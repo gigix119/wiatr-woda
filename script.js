@@ -252,3 +252,79 @@ ${message}`
     form.reset();
   });
 }
+/* =========================
+   Mini-slider w kartach + detail (data-slider)
+========================= */
+(function(){
+  const sliders = document.querySelectorAll("[data-slider]");
+  sliders.forEach((wrap) => {
+    const img = wrap.querySelector("img");
+    const prev = wrap.querySelector("[data-prev]");
+    const next = wrap.querySelector("[data-next]");
+    const tpl = wrap.querySelector("template[data-images]");
+    const dots = wrap.querySelectorAll(".dot");
+
+    if (!img || !tpl) return;
+
+    const urls = Array.from(tpl.content.querySelectorAll("span")).map(s => s.textContent.trim()).filter(Boolean);
+    if (urls.length <= 1) return;
+
+    let i = 0;
+
+    function render(){
+      img.src = urls[i];
+      dots.forEach((d, idx) => d.classList.toggle("is-on", idx === i));
+    }
+
+    function go(dir){
+      i = (i + dir + urls.length) % urls.length;
+      render();
+    }
+
+    if (prev) prev.addEventListener("click", () => go(-1));
+    if (next) next.addEventListener("click", () => go(1));
+
+    // swipe na mobile
+    let x0 = null;
+    wrap.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive:true });
+    wrap.addEventListener("touchend", (e) => {
+      if (x0 == null) return;
+      const x1 = e.changedTouches[0].clientX;
+      const dx = x1 - x0;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+      x0 = null;
+    }, { passive:true });
+
+    render();
+  });
+})();
+
+/* =========================
+   Read more
+========================= */
+(function(){
+  document.querySelectorAll("[data-readmore]").forEach((box) => {
+    const btn = box.querySelector("[data-readmore-btn]");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      const open = box.classList.toggle("is-open");
+      btn.textContent = open ? "zwiń ↑" : "czytaj więcej ↓";
+    });
+  });
+})();
+
+/* =========================
+   Accordion
+========================= */
+(function(){
+  document.querySelectorAll("[data-acc]").forEach((btn) => {
+    const panel = btn.nextElementSibling;
+    if (!panel || !panel.matches("[data-acc-panel]")) return;
+
+    btn.addEventListener("click", () => {
+      const open = btn.classList.toggle("is-open");
+      btn.querySelector(".acc__chev").textContent = open ? "▴" : "▾";
+    });
+  });
+})();
+
