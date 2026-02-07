@@ -1299,3 +1299,116 @@ a{ color: inherit; }
   .detailActions{ grid-template-columns: 1fr 1fr; }
   .amenGrid{ grid-template-columns: repeat(2, 1fr); }
 }
+/* ====== HEADINGS helper ====== */
+.h2{
+  margin: 0 0 10px;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+}
+
+/* ====== READ MORE ====== */
+.readmore{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  color: var(--brand);
+  font-weight: 800;
+  cursor: pointer;
+}
+.readmore__icon{
+  display:inline-block;
+  transition: transform .2s ease;
+}
+.readmore.is-open .readmore__icon{
+  transform: rotate(180deg);
+}
+
+/* ====== CHIPS (amenities) ====== */
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid rgba(14,23,38,0.12);
+  background: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  color: #22324a;
+}
+.chips[data-collapsed="true"] .chip--more{
+  display: none;
+}
+.chips__toggle{
+  margin-top: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+/* ====== ACCORDION ====== */
+.accordion{
+  margin-top: 18px;
+  border-top: 1px solid rgba(14,23,38,0.08);
+  padding-top: 14px;
+}
+.accordion__head{
+  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 0;
+  background: transparent;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.accordion__icon{
+  transition: transform .2s ease;
+  font-size: 18px;
+  color: var(--muted);
+}
+.accordion.is-open .accordion__icon{
+  transform: rotate(180deg);
+}
+.accordion__body{
+  padding: 8px 0 0;
+}
+.bullets{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.bullets li{ margin: 6px 0; }
+
+/* ====== BADGE: gwarancja najniższej ceny ====== */
+.badge{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .02em;
+
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #ff8a00, #ff2d55);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+.tile__media{ position: relative; }

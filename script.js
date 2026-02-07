@@ -98,7 +98,7 @@ const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
 const galleryItems = document.querySelectorAll(".gallery__item");
 
-function openLightbox(src, alt="") {
+function openLightbox(src, alt = "") {
   if (!lightbox || !lightboxImg) return;
   lightboxImg.src = src;
   lightboxImg.alt = alt;
@@ -133,7 +133,7 @@ if (lightbox) {
   });
 }
 
-// CAROUSEL (oferta)
+// CAROUSEL (stary — jeśli gdzieś używasz data-carousel)
 document.querySelectorAll("[data-carousel]").forEach(carousel => {
   const track = carousel.querySelector(".carousel__track");
   const slides = carousel.querySelectorAll(".carousel__slide");
@@ -141,6 +141,8 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
   const nextBtn = carousel.querySelector(".carousel__btn--next");
   const dotsWrap = carousel.querySelector(".carousel__dots");
   let idx = 0;
+
+  if (!track || !slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
 
   slides.forEach((_, i) => {
     const dot = document.createElement("button");
@@ -168,7 +170,7 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
   carousel.addEventListener("touchend", e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) goTo(idx + (diff > 0 ? 1 : -1));
-  });
+  }, { passive: true });
 });
 
 // Formularz — walidacja + mailto (bez backendu)
@@ -231,7 +233,6 @@ if (form) {
       return;
     }
 
-    // mailto fallback (działa bez backendu)
     const subject = encodeURIComponent("Zapytanie o rezerwację – Wiatr & Woda Dębki");
     const body = encodeURIComponent(
 `Imię i nazwisko: ${name}
@@ -244,7 +245,6 @@ Wiadomość:
 ${message}`
     );
 
-    // Podmień na właściwy e-mail:
     const toEmail = "wiatr.woda.debki@gmail.com";
     window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
 
@@ -252,10 +252,11 @@ ${message}`
     form.reset();
   });
 }
+
 /* =========================
    Mini-slider w kartach + detail (data-slider)
 ========================= */
-(function(){
+(function () {
   const sliders = document.querySelectorAll("[data-slider]");
   sliders.forEach((wrap) => {
     const img = wrap.querySelector("img");
@@ -266,17 +267,20 @@ ${message}`
 
     if (!img || !tpl) return;
 
-    const urls = Array.from(tpl.content.querySelectorAll("span")).map(s => s.textContent.trim()).filter(Boolean);
+    const urls = Array.from(tpl.content.querySelectorAll("span"))
+      .map(s => s.textContent.trim())
+      .filter(Boolean);
+
     if (urls.length <= 1) return;
 
     let i = 0;
 
-    function render(){
+    function render() {
       img.src = urls[i];
       dots.forEach((d, idx) => d.classList.toggle("is-on", idx === i));
     }
 
-    function go(dir){
+    function go(dir) {
       i = (i + dir + urls.length) % urls.length;
       render();
     }
@@ -286,45 +290,79 @@ ${message}`
 
     // swipe na mobile
     let x0 = null;
-    wrap.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive:true });
+    wrap.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     wrap.addEventListener("touchend", (e) => {
       if (x0 == null) return;
       const x1 = e.changedTouches[0].clientX;
       const dx = x1 - x0;
       if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
       x0 = null;
-    }, { passive:true });
+    }, { passive: true });
 
     render();
   });
 })();
 
 /* =========================
-   Read more
+   Czytaj więcej (Opis obiektu)
+   HTML: button ma data-readmore, a "more" ma data-desc-more
 ========================= */
-(function(){
-  document.querySelectorAll("[data-readmore]").forEach((box) => {
-    const btn = box.querySelector("[data-readmore-btn]");
-    if (!btn) return;
+(function () {
+  document.querySelectorAll("[data-readmore]").forEach((btn) => {
+    const section = btn.closest("section") || document;
+    const more = section.querySelector("[data-desc-more]");
+    if (!more) return;
+
+    const label = btn.querySelector("span");
+    const icon = btn.querySelector(".readmore__icon");
+
     btn.addEventListener("click", () => {
-      const open = box.classList.toggle("is-open");
-      btn.textContent = open ? "zwiń ↑" : "czytaj więcej ↓";
+      const open = btn.classList.toggle("is-open");
+      more.hidden = !open;
+
+      if (label) label.textContent = open ? "Zwiń" : "Czytaj więcej";
+      if (icon) icon.textContent = open ? "⌃" : "⌄";
     });
   });
 })();
 
 /* =========================
-   Accordion
+   Chips: Pokaż więcej / mniej
+   Obsługa wielu sekcji:
+   - wrapper: [data-chips]
+   - przycisk: [data-chips-toggle] (najlepiej w tym samym section)
 ========================= */
-(function(){
-  document.querySelectorAll("[data-acc]").forEach((btn) => {
-    const panel = btn.nextElementSibling;
-    if (!panel || !panel.matches("[data-acc-panel]")) return;
+(function () {
+  document.querySelectorAll("[data-chips]").forEach((chips) => {
+    const scope = chips.closest("section") || document;
+    const btn = scope.querySelector("[data-chips-toggle]");
+    if (!btn) return;
 
     btn.addEventListener("click", () => {
-      const open = btn.classList.toggle("is-open");
-      btn.querySelector(".acc__chev").textContent = open ? "▴" : "▾";
+      const collapsed = chips.getAttribute("data-collapsed") === "true";
+      chips.setAttribute("data-collapsed", collapsed ? "false" : "true");
+      btn.textContent = collapsed ? "Pokaż mniej" : "Pokaż więcej";
     });
   });
 })();
 
+/* =========================
+   Accordion: Informacje dodatkowe
+   HTML:
+   - button: [data-acc-toggle]
+   - body: [data-acc-body] (w .accordion)
+========================= */
+(function () {
+  document.querySelectorAll("[data-acc-toggle]").forEach((btn) => {
+    const acc = btn.closest(".accordion");
+    const body = acc?.querySelector("[data-acc-body]");
+    if (!acc || !body) return;
+
+    btn.addEventListener("click", () => {
+      const open = !acc.classList.contains("is-open");
+      acc.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      body.hidden = !open;
+    });
+  });
+})();

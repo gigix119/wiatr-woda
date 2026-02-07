@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Apartament nr 3 | Wiatr & Woda Dębki</title>
-  <meta name="description" content="Apartament nr 3 – 4 osoby, 40 m², balkon. Aneks kuchenny, Smart TV, Wi-Fi. Zapytaj o dostępność." />
+  <meta name="description" content="Apartament nr 3 w Wiatr & Woda Dębki: 4 osoby, 40 m², balkon, aneks kuchenny, Smart TV i Wi-Fi. Zapytaj o dostępność i cenę." />
   <link rel="canonical" href="https://twojadomena.pl/apartament-3" />
   <meta name="theme-color" content="#1E64FF" />
 
@@ -32,7 +33,7 @@
         </button>
 
         <ul id="navMenu" class="nav__menu">
-          <li><a class="nav__link" href="oferta.html" aria-current="page">Oferta</a></li>
+          <li><a class="nav__link" href="oferta.html">Oferta</a></li>
           <li><a class="nav__link" href="index.html#galeria">Galeria</a></li>
           <li><a class="nav__link" href="index.html#debki">Dębki</a></li>
           <li><a class="nav__link" href="index.html#kontakt">Kontakt</a></li>
@@ -44,139 +45,182 @@
   </header>
 
   <main id="main">
-    <section class="section section--detail">
+    <section class="section section--offers">
       <div class="container">
-        <a class="backlink" href="oferta.html">← Wróć do oferty</a>
 
-        <article class="detailCard">
-          <div class="detailHero" data-slider>
-            <img src="assets/ap3-1.jpg" alt="Apartament nr 3 – zdjęcie" loading="eager" decoding="async" width="1600" height="900">
-            <button class="offerCard__nav offerCard__nav--prev" type="button" aria-label="Poprzednie zdjęcie" data-prev>‹</button>
-            <button class="offerCard__nav offerCard__nav--next" type="button" aria-label="Następne zdjęcie" data-next>›</button>
-            <div class="offerCard__dots" aria-hidden="true">
-              <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
-            </div>
-            <template data-images>
-              <span>assets/ap3-1.jpg</span>
-              <span>assets/ap3-2.jpg</span>
-              <span>assets/ap3-3.jpg</span>
-            </template>
+        <a href="oferta.html" class="btn2 btn2--ghost" style="margin-bottom:14px; display:inline-flex;">
+          ← Wróć do oferty
+        </a>
+
+        <!-- HERO / GALERIA -->
+        <div class="offerCard__media tile__media reveal" data-slider style="border-radius:18px; overflow:hidden;">
+          <span class="badge">GWARANCJA NAJNIŻSZEJ CENY</span>
+
+          <img src="assets/ap3-1.jpg" alt="Apartament nr 3 – zdjęcie" loading="lazy" decoding="async" width="1200" height="800">
+          <button class="offerCard__nav offerCard__nav--prev" type="button" aria-label="Poprzednie zdjęcie" data-prev>‹</button>
+          <button class="offerCard__nav offerCard__nav--next" type="button" aria-label="Następne zdjęcie" data-next>›</button>
+
+          <div class="offerCard__dots" aria-hidden="true">
+            <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
           </div>
 
-          <div class="detailBody">
-            <h1 class="detailTitle">Apartament nr 3</h1>
-            <p class="detailPlace">📍 Wiatr &amp; Woda Dębki, ul. Rybacka 10, Dębki</p>
+          <template data-images>
+            <span>assets/ap3-1.jpg</span>
+            <span>assets/ap3-2.jpg</span>
+            <span>assets/ap3-3.jpg</span>
+          </template>
+        </div>
 
-            <div class="detailStats">
-              <div class="stat"><span class="stat__ico">👥</span><span class="stat__k">Osoby</span><span class="stat__v">4</span></div>
-              <div class="stat"><span class="stat__ico">📐</span><span class="stat__k">Metraż</span><span class="stat__v">40 m²</span></div>
-              <div class="stat"><span class="stat__ico">🏡</span><span class="stat__k">Typ</span><span class="stat__v">Apartament</span></div>
-            </div>
+        <!-- NAGŁÓWEK + META -->
+        <header class="reveal" style="margin-top:18px;">
+          <h1 class="offersHead__title" style="margin-bottom:6px;">Apartament nr 3</h1>
+          <p class="offersHead__lead" style="margin-top:0;">
+            <span class="ico">📍</span> Wiatr &amp; Woda Dębki, ul. Rybacka 10, Dębki
+          </p>
 
-            <div class="priceBox">
-              <span class="priceBox__k">Cena orientacyjna:</span>
-              <span class="priceBox__v">od <b>250 zł</b> do <b>750 zł</b> <small>za noc</small></span>
-              <span class="priceBox__note">Ostateczna cena zależna od terminu i długości pobytu.</span>
-            </div>
-
-            <div class="detailActions">
-              <a class="btn2 btn2--primary" href="index.html#kontakt">Zapytaj o dostępność</a>
-              <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">Zadzwoń</a>
-            </div>
-
-            <hr class="sep">
-
-            <section class="detailSection">
-              <h2 class="detailH">Opis obiektu</h2>
-
-              <div class="readmore" data-readmore>
-                <p class="detailP">
-                  Luksusowy apartament w Dębkach, w którym niezwykły klimat nadmorskiej miejscowości łączy się z nowoczesnym komfortem.
-                  Położony w spokojnej części Dębek, zaledwie kilka minut spacerem od szerokiej, piaszczystej plaży oraz sosnowych lasów
-                  Nadmorskiego Parku Krajobrazowego, stanowi doskonałą bazę wypoczynkową dla osób ceniących ciszę, naturę i wysoki standard.
-                </p>
-                <div class="readmore__more">
-                  <p class="detailP">
-                    Apartament przeznaczony jest dla maksymalnie 4 osób. Przestrzeń została zaprojektowana z myślą o wygodzie i funkcjonalności –
-                    obejmuje jasny salon z częścią wypoczynkową oraz komfortową strefę sypialnianą. Starannie dobrane materiały, jasne kolory
-                    i subtelne nadmorskie akcenty tworzą spójne, eleganckie wnętrze sprzyjające relaksowi.
-                  </p>
-                  <p class="detailP">
-                    W salonie znajduje się wygodna sofa z funkcją spania, a całość dopełniają gustowne dodatki inspirowane nadmorskim klimatem.
-                    Do dyspozycji gości pozostaje w pełni wyposażony aneks kuchenny, który umożliwia komfortowe przygotowywanie posiłków.
-                    Nowoczesna łazienka z prysznicem zapewnia wygodę zarówno podczas krótkich, jak i dłuższych pobytów.
-                  </p>
-                  <p class="detailP">
-                    Istotnym atutem apartamentu jest balkon z kompletem mebli ogrodowych, idealny na poranną kawę lub wieczorny odpoczynek
-                    przy szumie drzew. Inwestycja Wiatr &amp; Woda Dębki wyróżnia się kameralnym charakterem, wysoką jakością wykończenia oraz
-                    znakomitą lokalizacją blisko morza i centrum miejscowości.
-                  </p>
-                </div>
-
-                <button class="readmore__btn" type="button" data-readmore-btn>czytaj więcej ↓</button>
-              </div>
-            </section>
-
-            <section class="detailSection">
-              <h2 class="detailH">Udogodnienia</h2>
-
-              <div class="amenGrid">
-                <div class="amen"><span>🍳</span> Aneks kuchenny</div>
-                <div class="amen"><span>❄️</span> Lodówka</div>
-                <div class="amen"><span>🔥</span> Płyta kuchenna</div>
-                <div class="amen"><span>💨</span> Okap</div>
-                <div class="amen"><span>📻</span> Mikrofalówka</div>
-                <div class="amen"><span>🫖</span> Czajnik</div>
-                <div class="amen"><span>☕</span> Ekspres kapsułkowy</div>
-                <div class="amen"><span>🔪</span> Przybory kuchenne</div>
-
-                <div class="amen"><span>🚿</span> Łazienka</div>
-                <div class="amen"><span>🚿</span> Prysznic</div>
-                <div class="amen"><span>🧴</span> Kosmetyki</div>
-                <div class="amen"><span>💨</span> Suszarka do włosów</div>
-                <div class="amen"><span>🛁</span> Ręczniki</div>
-                <div class="amen"><span>🧻</span> Papier toaletowy</div>
-
-                <div class="amen"><span>📺</span> Smart TV</div>
-                <div class="amen"><span>👔</span> Szafa</div>
-                <div class="amen"><span>🔌</span> Gniazdka przy łóżku</div>
-                <div class="amen"><span>🌡️</span> Ogrzewanie</div>
-                <div class="amen"><span>🧺</span> Suszarka na ubrania</div>
-                <div class="amen"><span>📶</span> WiFi</div>
-                <div class="amen"><span>🛏️</span> 2× łóżko pojedyncze + narożnik z funkcją spania</div>
-
-                <div class="amen"><span>🪟</span> Balkon</div>
-                <div class="amen"><span>🌳</span> Parawan</div>
-                <div class="amen"><span>🛋️</span> Leżak</div>
-                <div class="amen"><span>🪑</span> Stół ogrodowy</div>
-
-                <div class="amen"><span>👶</span> Krzesełko dla dzieci</div>
-                <div class="amen"><span>🏠</span> Obiekt wolnostojący</div>
-                <div class="amen"><span>🚭</span> Dla niepalących</div>
-              </div>
-            </section>
-
-            <section class="detailSection">
-              <button class="acc" type="button" data-acc>
-                <span>Informacje dodatkowe</span>
-                <span class="acc__chev">▾</span>
-              </button>
-              <div class="acc__panel" data-acc-panel>
-                <ul class="detailList">
-                  <li>Opłata miejscowa (klimatyczna) nie jest wliczona w cenę.</li>
-                  <li>Bezwzględny zakaz palenia wewnątrz apartamentu.</li>
-                  <li>Apartament przyjazny alergikom, nie akceptujemy zwierząt.</li>
-                </ul>
-              </div>
-            </section>
-
-            <div class="detailActions detailActions--bottom">
-              <a class="btn2 btn2--primary" href="index.html#kontakt">Zapytaj o dostępność</a>
-              <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">Zadzwoń</a>
-            </div>
-
+          <div class="offerIcons" aria-label="Szybkie parametry" style="margin-top:10px;">
+            <span class="chip">👥 4 osoby</span>
+            <span class="chip">📐 40 m²</span>
+            <span class="chip">🏠 Apartament</span>
           </div>
-        </article>
+        </header>
+
+        <!-- CENA + CTA -->
+        <div class="reveal" style="margin-top:14px;">
+          <div style="background:rgba(30,100,255,0.08); border:1px solid rgba(30,100,255,0.18); border-radius:18px; padding:16px;">
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between;">
+              <div style="color:var(--muted); font-weight:700;">Cena orientacyjna:</div>
+              <div style="font-size:28px; font-weight:900; letter-spacing:-0.02em;">od 250 zł do 750 zł <span style="font-size:14px; font-weight:700; color:var(--muted);">za noc</span></div>
+            </div>
+            <div style="color:var(--muted); margin-top:6px; font-size:14px;">
+              Ostateczna cena zależy od terminu i długości pobytu.
+            </div>
+          </div>
+
+          <div class="offerActions" style="margin-top:14px;">
+            <a class="btn2 btn2--primary" href="index.html#kontakt">✉ Zapytaj o dostępność</a>
+            <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">☎ Zadzwoń</a>
+          </div>
+        </div>
+
+        <!-- OPIS -->
+        <section class="reveal" style="margin-top:22px;">
+          <h2 class="h2">Opis obiektu</h2>
+
+          <div class="desc" data-desc>
+            <p style="color:var(--muted); line-height:1.75; margin-top:0;">
+              Luksusowy apartament w Dębkach, w którym niezwykły klimat nadmorskiej miejscowości łączy się z nowoczesnym komfortem.
+              Położony w spokojnej części Dębek, zaledwie kilka minut spacerem od szerokiej, piaszczystej plaży oraz sosnowych lasów
+              Nadmorskiego Parku Krajobrazowego, stanowi doskonałą bazę wypoczynkową dla osób ceniących ciszę, naturę i wysoki standard.
+            </p>
+
+            <div class="desc__more" data-desc-more hidden>
+              <p style="color:var(--muted); line-height:1.75;">
+                Apartament przeznaczony jest dla maksymalnie 4 osób. Przestrzeń została zaprojektowana z myślą o wygodzie i funkcjonalności
+                – obejmuje jasny salon z częścią wypoczynkową oraz komfortową strefę sypialnianą. Starannie dobrane materiały, jasne kolory
+                i subtelne nadmorskie akcenty tworzą spójne, eleganckie wnętrze sprzyjające relaksowi.
+              </p>
+              <p style="color:var(--muted); line-height:1.75;">
+                W salonie znajduje się wygodna sofa z funkcją spania. Do dyspozycji gości pozostaje w pełni wyposażony aneks kuchenny,
+                który umożliwia komfortowe przygotowywanie posiłków. Nowoczesna łazienka z prysznicem zapewnia wygodę zarówno podczas krótkich,
+                jak i dłuższych pobytów.
+              </p>
+              <p style="color:var(--muted); line-height:1.75; margin-bottom:0;">
+                Istotnym atutem apartamentu jest balkon z kompletem mebli ogrodowych, idealny na poranną kawę lub wieczorny odpoczynek.
+                Inwestycja Wiatr &amp; Woda Dębki wyróżnia się kameralnym charakterem, wysoką jakością wykończenia oraz znakomitą lokalizacją
+                blisko morza i centrum miejscowości.
+              </p>
+            </div>
+          </div>
+
+          <button class="readmore" type="button" data-readmore>
+            <span>Czytaj więcej</span>
+            <span class="readmore__icon" aria-hidden="true">⌄</span>
+          </button>
+        </section>
+
+        <!-- UDOGODNIENIA (rozwijane) -->
+        <section class="amen reveal" aria-labelledby="amenTitle" style="margin-top:18px;">
+          <h2 id="amenTitle" class="h2">Udogodnienia</h2>
+
+          <div class="chips" data-chips data-collapsed="true">
+            <!-- widoczne zawsze -->
+            <span class="chip">🍳 Aneks kuchenny</span>
+            <span class="chip">🚿 Prysznic</span>
+            <span class="chip">📺 Smart TV</span>
+            <span class="chip">📶 Wi-Fi</span>
+            <span class="chip">🪟 Balkon</span>
+
+            <!-- więcej (ukryte w collapsed) -->
+            <span class="chip chip--more">❄️ Lodówka</span>
+            <span class="chip chip--more">🔥 Płyta kuchenna</span>
+            <span class="chip chip--more">💨 Okap</span>
+            <span class="chip chip--more">📻 Mikrofalówka</span>
+            <span class="chip chip--more">🫖 Czajnik</span>
+            <span class="chip chip--more">☕ Ekspres kapsułkowy</span>
+            <span class="chip chip--more">🔪 Przybory kuchenne</span>
+
+            <span class="chip chip--more">🧴 Kosmetyki</span>
+            <span class="chip chip--more">💨 Suszarka do włosów</span>
+            <span class="chip chip--more">🛁 Ręczniki</span>
+            <span class="chip chip--more">🧻 Papier toaletowy</span>
+
+            <span class="chip chip--more">👔 Szafa</span>
+            <span class="chip chip--more">🔌 Gniazdka przy łóżku</span>
+            <span class="chip chip--more">🌡️ Ogrzewanie</span>
+            <span class="chip chip--more">🧺 Suszarka na ubrania</span>
+
+            <span class="chip chip--more">🛏️ 2× łóżko pojedyncze + narożnik z funkcją spania</span>
+
+            <span class="chip chip--more">🌳 Parawan</span>
+            <span class="chip chip--more">🛋️ Leżak</span>
+            <span class="chip chip--more">🪑 Stół ogrodowy</span>
+
+            <span class="chip chip--more">👶 Krzesełko dla dzieci</span>
+            <span class="chip chip--more">🏠 Obiekt wolnostojący</span>
+            <span class="chip chip--more">🚭 Zakaz palenia</span>
+            <span class="chip chip--more">🐶 Zwierzęta nieakceptowane</span>
+          </div>
+
+          <button class="chips__toggle" type="button" data-chips-toggle>Pokaż więcej</button>
+        </section>
+
+        <!-- UDOGODNIENIA W OBIEKCIE -->
+        <section class="amen reveal" aria-labelledby="objTitle" style="margin-top:14px;">
+          <h2 id="objTitle" class="h2">Udogodnienia w obiekcie</h2>
+          <div class="chips">
+            <span class="chip">🧘 Strefa wypoczynkowa</span>
+            <span class="chip">🚗 Miejsce postojowe</span>
+            <span class="chip">🛝 Plac zabaw</span>
+            <span class="chip">🔥 Grill</span>
+          </div>
+        </section>
+
+        <!-- INFORMACJE DODATKOWE (akordeon) -->
+        <section class="accordion reveal" aria-labelledby="extraTitle" style="margin-top:14px;">
+          <button class="accordion__head" type="button" aria-expanded="false" data-acc-toggle>
+            <span id="extraTitle" class="h2">Informacje dodatkowe</span>
+            <span class="accordion__icon" aria-hidden="true">⌄</span>
+          </button>
+
+          <div class="accordion__body" hidden data-acc-body>
+            <ul class="bullets">
+              <li><b>Zameldowanie</b> od godziny 15:00</li>
+              <li><b>Wymeldowanie</b> do godziny 10:00</li>
+              <li>Opłata miejscowa (klimatyczna) wliczona w cenę.</li>
+              <li>Opłata serwisowa (sprzątanie) wliczona w cenę.</li>
+              <li><b>Bezwzględny zakaz palenia</b> wewnątrz apartamentu.</li>
+              <li>Apartament przyjazny alergikom, nie akceptujemy zwierząt.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CTA (na dole) -->
+        <div class="offerActions reveal" style="margin-top:18px;">
+          <a class="btn2 btn2--primary" href="index.html#kontakt">✉ Zapytaj o dostępność</a>
+          <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">☎ Zadzwoń</a>
+        </div>
+
       </div>
     </section>
   </main>
