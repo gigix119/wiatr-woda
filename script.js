@@ -263,7 +263,7 @@ ${message}`
     const prev = wrap.querySelector("[data-prev]");
     const next = wrap.querySelector("[data-next]");
     const tpl = wrap.querySelector("template[data-images]");
-    const dots = wrap.querySelectorAll(".dot");
+    const dotsWrap = wrap.querySelector(".offerCard__dots");
 
     if (!img || !tpl) return;
 
@@ -271,8 +271,24 @@ ${message}`
       .map(s => s.textContent.trim())
       .filter(Boolean);
 
-    if (urls.length <= 1) return;
+    if (urls.length <= 1) {
+      if (prev) prev.style.display = "none";
+      if (next) next.style.display = "none";
+      if (dotsWrap) dotsWrap.style.display = "none";
+      return;
+    }
 
+    // dynamicznie generuj kropki
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      urls.forEach((_, idx) => {
+        const dot = document.createElement("span");
+        dot.className = "dot" + (idx === 0 ? " is-on" : "");
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    const dots = dotsWrap ? dotsWrap.querySelectorAll(".dot") : [];
     let i = 0;
 
     function render() {
