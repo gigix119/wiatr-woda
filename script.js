@@ -164,13 +164,36 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
   prevBtn.addEventListener("click", () => goTo(idx - 1));
   nextBtn.addEventListener("click", () => goTo(idx + 1));
 
-  // Swipe support
+  // Swipe support (touch)
   let startX = 0;
   carousel.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
   carousel.addEventListener("touchend", e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) goTo(idx + (diff > 0 ? 1 : -1));
   }, { passive: true });
+
+  // Swipe support (mouse drag on PC)
+  let cmx0 = null;
+  let cDragging = false;
+  carousel.style.cursor = "grab";
+  carousel.addEventListener("mousedown", (e) => {
+    cmx0 = e.clientX;
+    cDragging = true;
+    carousel.style.cursor = "grabbing";
+    e.preventDefault();
+  });
+  window.addEventListener("mousemove", (e) => {
+    if (!cDragging) return;
+    e.preventDefault();
+  });
+  window.addEventListener("mouseup", (e) => {
+    if (!cDragging) return;
+    cDragging = false;
+    carousel.style.cursor = "grab";
+    const diff = cmx0 - e.clientX;
+    if (Math.abs(diff) > 40) goTo(idx + (diff > 0 ? 1 : -1));
+    cmx0 = null;
+  });
 });
 
 // Formularz — walidacja + mailto (bez backendu)
@@ -304,7 +327,7 @@ ${message}`
     if (prev) prev.addEventListener("click", () => go(-1));
     if (next) next.addEventListener("click", () => go(1));
 
-    // swipe na mobile
+    // swipe na mobile (touch)
     let x0 = null;
     wrap.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; }, { passive: true });
     wrap.addEventListener("touchend", (e) => {
@@ -314,6 +337,29 @@ ${message}`
       if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
       x0 = null;
     }, { passive: true });
+
+    // swipe na PC (mouse drag)
+    let mx0 = null;
+    let dragging = false;
+    wrap.style.cursor = "grab";
+    wrap.addEventListener("mousedown", (e) => {
+      mx0 = e.clientX;
+      dragging = true;
+      wrap.style.cursor = "grabbing";
+      e.preventDefault();
+    });
+    window.addEventListener("mousemove", (e) => {
+      if (!dragging) return;
+      e.preventDefault();
+    });
+    window.addEventListener("mouseup", (e) => {
+      if (!dragging) return;
+      dragging = false;
+      wrap.style.cursor = "grab";
+      const dx = e.clientX - mx0;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+      mx0 = null;
+    });
 
     render();
   });
