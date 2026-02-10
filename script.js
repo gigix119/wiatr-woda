@@ -361,8 +361,99 @@ ${message}`
       mx0 = null;
     });
 
+    // kliknięcie na zdjęcie otwiera lightbox (detail pages)
+    if (!wrap.closest(".offerCard")) {
+      img.addEventListener("click", (e) => {
+        if (dragging) return;
+        openDetailLightbox(urls, i);
+      });
+    }
+
     render();
   });
+})();
+
+/* =========================
+   Detail page lightbox (fullscreen gallery)
+========================= */
+(function () {
+  let lb = document.getElementById("detailLightbox");
+  if (lb) return; // already exists
+
+  // Create lightbox dynamically
+  lb = document.createElement("div");
+  lb.className = "lightbox";
+  lb.id = "detailLightbox";
+  lb.setAttribute("aria-hidden", "true");
+  lb.innerHTML = `
+    <div class="lightbox__backdrop" data-close></div>
+    <div class="lightbox__panel">
+      <img class="lightbox__img" id="detailLbImg" src="" alt="Zdjęcie apartamentu">
+      <button class="lightbox__close" data-close type="button" aria-label="Zamknij">✕</button>
+      <button class="lightbox__nav lightbox__nav--prev" id="detailLbPrev" type="button" aria-label="Poprzednie">‹</button>
+      <button class="lightbox__nav lightbox__nav--next" id="detailLbNext" type="button" aria-label="Następne">›</button>
+      <div class="lightbox__counter" id="detailLbCounter"></div>
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  let lbUrls = [];
+  let lbIdx = 0;
+  const lbImg = document.getElementById("detailLbImg");
+  const lbCounter = document.getElementById("detailLbCounter");
+
+  function renderLb() {
+    lbImg.src = lbUrls[lbIdx];
+    lbCounter.textContent = `${lbIdx + 1} / ${lbUrls.length}`;
+  }
+
+  window.openDetailLightbox = function (urls, startIdx) {
+    lbUrls = urls;
+    lbIdx = startIdx || 0;
+    renderLb();
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
+  function closeLb() {
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("detailLbPrev").addEventListener("click", () => {
+    lbIdx = (lbIdx - 1 + lbUrls.length) % lbUrls.length;
+    renderLb();
+  });
+  document.getElementById("detailLbNext").addEventListener("click", () => {
+    lbIdx = (lbIdx + 1) % lbUrls.length;
+    renderLb();
+  });
+
+  lb.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeLb();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowLeft") { lbIdx = (lbIdx - 1 + lbUrls.length) % lbUrls.length; renderLb(); }
+    if (e.key === "ArrowRight") { lbIdx = (lbIdx + 1) % lbUrls.length; renderLb(); }
+  });
+
+  // Swipe in lightbox (touch)
+  let lbX0 = null;
+  lb.addEventListener("touchstart", (e) => { lbX0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", (e) => {
+    if (lbX0 == null) return;
+    const dx = e.changedTouches[0].clientX - lbX0;
+    if (Math.abs(dx) > 40) {
+      lbIdx = (lbIdx + (dx < 0 ? 1 : -1) + lbUrls.length) % lbUrls.length;
+      renderLb();
+    }
+    lbX0 = null;
+  }, { passive: true });
 })();
 
 /* =========================
