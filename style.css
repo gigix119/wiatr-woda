@@ -1711,3 +1711,65 @@ a{ color: inherit; }
     top: auto;
   }
 }
+/* ===========================
+   FIX: Udogodnienia (mobile)
+   WKLEJ NA KONIEC style.css
+   =========================== */
+
+/* Bazowo: chipsy jako "pigułki", nie tabela */
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(14,23,38,0.10);
+  background: #fff;
+  line-height: 1.15;
+  font-weight: 600;
+  max-width: 100%;
+  white-space: normal;      /* pozwala łamać tekst */
+  text-align: center;
+}
+
+/* Ukrywanie/ pokazywanie "więcej" */
+.chips[data-collapsed="true"] .chip--more{ display: none; }
+.chips[data-collapsed="false"] .chip--more{ display: inline-flex; }
+
+/* Sekcja amen — wymuś normalny layout na mobilce */
+@media (max-width: 720px){
+  .amen{
+    display: block !important;   /* zabija układ "tabelkowy" */
+  }
+
+  .amen .h2{
+    margin-bottom: 10px;
+  }
+
+  /* przycisk "Pokaż więcej" — pod chipsami, na całą szerokość */
+  .chips__toggle{
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(30,100,255,0.25);
+    background: rgba(30,100,255,0.08);
+    font-weight: 800;
+  }
+}
+@media (max-width: 720px){
+  .amen *{
+    box-sizing: border-box;
+  }
+  .amen .chip{
+    width: auto !important;
+    border-bottom: 1px solid rgba(14,23,38,0.10) !important; /* jeśli było “tabelkowo” */
+  }
+}
