@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Pokój numer 1 | Wiatr & Woda Dębki</title>
+  <meta name="description" content="Pokój numer 1 w Wiatr & Woda Dębki: 2 osoby, 18 m², balkon, Smart TV i Wi-Fi. Zapytaj o dostępność i cenę." />
+  <link rel="canonical" href="https://twojadomena.pl/pokoj-1" />
+  <meta name="theme-color" content="#1E64FF" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Przejdź do treści</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html#home" aria-label="Wiatr & Woda – strona główna">
+        <img class="brand__logo" src="assets/hero.png" alt="Wiatr & Woda Dębki" width="64" height="64" />
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja główna">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__bars" aria-hidden="true"></span>
+          <span class="sr-only">Otwórz menu</span>
+        </button>
+
+        <ul id="navMenu" class="nav__menu">
+          <li><a class="nav__link" href="oferta.html">Oferta</a></li>
+          <li><a class="nav__link" href="index.html#galeria">Galeria</a></li>
+          <li><a class="nav__link" href="index.html#debki">Dębki</a></li>
+          <li><a class="nav__link" href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <a class="callfab" href="tel:+48XXXXXXXXX" aria-label="Zadzwoń">☎</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section section--offers">
+      <div class="container">
+
+        <a href="oferta.html" class="btn2 btn2--ghost" style="margin-bottom:14px; display:inline-flex;">
+          ← Wróć do oferty
+        </a>
+
+        <!-- LAYOUT 2-kolumnowy na PC -->
+        <div class="detail-layout">
+        <div class="detail-layout__gallery">
+        <!-- HERO / GALERIA -->
+        <div class="offerCard__media tile__media reveal" data-slider style="border-radius:18px; overflow:hidden;">
+          <span class="badge">GWARANCJA NAJNIŻSZEJ CENY</span>
+
+          <img src="galeria/pok%C3%B3j%20nr1/1.JPG" alt="Pokój numer 1 – zdjęcie" loading="lazy" decoding="async" width="1200" height="800">
+          <button class="offerCard__nav offerCard__nav--prev" type="button" aria-label="Poprzednie zdjęcie" data-prev>‹</button>
+          <button class="offerCard__nav offerCard__nav--next" type="button" aria-label="Następne zdjęcie" data-next>›</button>
+
+          <div class="offerCard__dots" aria-hidden="true">
+            <span class="dot is-on"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+
+          <template data-images>
+            <span>galeria/pok%C3%B3j%20nr1/1.JPG</span>
+            <span>galeria/pok%C3%B3j%20nr1/2.JPG</span>
+            <span>galeria/pok%C3%B3j%20nr1/3.JPG</span>
+            <span>galeria/pok%C3%B3j%20nr1/4.JPG</span>
+            <span>galeria/pok%C3%B3j%20nr1/5.JPG</span>
+            <span>galeria/pok%C3%B3j%20nr1/6.JPG</span>
+          </template>
+        </div>
+        </div><!-- /detail-layout__gallery -->
+
+        <div class="detail-layout__sidebar">
+        <!-- NAGŁÓWEK + META -->
+        <header class="reveal" style="margin-top:18px;">
+          <h1 class="offersHead__title" style="margin-bottom:6px;">Pokój numer 1</h1>
+          <p class="offersHead__lead" style="margin-top:0;">
+            <span class="ico">📍</span> Wiatr &amp; Woda Dębki, ul. Rybacka 10, Dębki
+          </p>
+
+          <div class="offerIcons" aria-label="Szybkie parametry" style="margin-top:10px;">
+            <span class="chip">2 osoby</span>
+            <span class="chip">18 m²</span>
+            <span class="chip">Pokój</span>
+          </div>
+        </header>
+
+        <!-- CENA + CTA -->
+        <div class="reveal" style="margin-top:14px;">
+          <div style="background:rgba(30,100,255,0.08); border:1px solid rgba(30,100,255,0.18); border-radius:18px; padding:16px;">
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between;">
+              <div style="color:var(--muted); font-weight:700;">Cena orientacyjna:</div>
+              <div style="font-size:28px; font-weight:900; letter-spacing:-0.02em;">od 150 zł do 300 zł <span style="font-size:14px; font-weight:700; color:var(--muted);">za noc</span></div>
+            </div>
+            <div style="color:var(--muted); margin-top:6px; font-size:14px;">
+              Ostateczna cena zależy od terminu i długości pobytu.
+            </div>
+          </div>
+
+          <div class="offerActions" style="margin-top:14px;">
+            <a class="btn2 btn2--primary" href="index.html#kontakt">✉ Zapytaj o dostępność</a>
+            <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">☎ Zadzwoń</a>
+          </div>
+        </div>
+        </div><!-- /detail-layout__sidebar -->
+        </div><!-- /detail-layout -->
+
+        <!-- OPIS -->
+        <section class="reveal" style="margin-top:22px;">
+          <h2 class="h2">Opis obiektu</h2>
+
+          <div class="desc" data-desc>
+            <p style="color:var(--muted); line-height:1.75; margin-top:0;">
+              Przytulny pokój dwuosobowy w Dębkach, idealny dla par lub osób podróżujących w duecie.
+              Położony w spokojnej części Dębek, zaledwie kilka minut spacerem od szerokiej, piaszczystej plaży oraz sosnowych lasów
+              Nadmorskiego Parku Krajobrazowego, stanowi doskonałą bazę wypoczynkową dla osób ceniących ciszę, naturę i komfort.
+            </p>
+
+            <div class="desc__more" data-desc-more hidden>
+              <p style="color:var(--muted); line-height:1.75;">
+                Pokój przeznaczony jest dla maksymalnie 2 osób. Wyposażony w dwa wygodne łóżka pojedyncze,
+                prywatną łazienkę z prysznicem oraz balkon z kompletem mebli ogrodowych.
+                Do dyspozycji gości pozostaje Smart TV, bezpłatne Wi-Fi oraz lodówka.
+              </p>
+              <p style="color:var(--muted); line-height:1.75; margin-bottom:0;">
+                Starannie dobrane materiały wykończeniowe, jasne kolory i subtelne nadmorskie akcenty tworzą
+                spójne, eleganckie wnętrze sprzyjające relaksowi. Inwestycja Wiatr &amp; Woda Dębki wyróżnia się
+                kameralnym charakterem, wysoką jakością wykończenia oraz znakomitą lokalizacją blisko morza i centrum miejscowości.
+              </p>
+            </div>
+          </div>
+
+          <button class="readmore" type="button" data-readmore>
+            <span>Czytaj więcej</span>
+            <span class="readmore__icon" aria-hidden="true">⌄</span>
+          </button>
+        </section>
+
+        <!-- UDOGODNIENIA (rozwijane) -->
+        <section class="amen reveal" aria-labelledby="amenTitle" style="margin-top:18px;">
+          <h2 id="amenTitle" class="h2">Udogodnienia</h2>
+
+          <div class="chips" data-chips data-collapsed="true">
+            <!-- widoczne zawsze -->
+            <span class="chip">Prywatna łazienka</span>
+            <span class="chip">Prysznic</span>
+            <span class="chip">Smart TV</span>
+            <span class="chip">Wi-Fi</span>
+            <span class="chip">Balkon</span>
+
+            <!-- więcej (ukryte w collapsed) -->
+            <span class="chip chip--more">Lodówka</span>
+            <span class="chip chip--more">Czajnik</span>
+
+            <span class="chip chip--more">Kosmetyki</span>
+            <span class="chip chip--more">Suszarka do włosów</span>
+            <span class="chip chip--more">Ręczniki</span>
+            <span class="chip chip--more">Papier toaletowy</span>
+
+            <span class="chip chip--more">Szafa</span>
+            <span class="chip chip--more">Gniazdka przy łóżku</span>
+            <span class="chip chip--more">Ogrzewanie</span>
+            <span class="chip chip--more">Suszarka na ubrania</span>
+
+            <span class="chip chip--more">2× łóżko pojedyncze</span>
+
+            <span class="chip chip--more">Parawan</span>
+            <span class="chip chip--more">Leżak</span>
+            <span class="chip chip--more">Stół ogrodowy</span>
+
+            <span class="chip chip--more">Obiekt wolnostojący</span>
+            <span class="chip chip--more">Zakaz palenia</span>
+            <span class="chip chip--more">Zwierzęta nieakceptowane</span>
+          </div>
+
+          <button class="chips__toggle" type="button" data-chips-toggle>Pokaż więcej</button>
+        </section>
+
+        <!-- UDOGODNIENIA W OBIEKCIE -->
+        <section class="amen reveal" aria-labelledby="objTitle" style="margin-top:14px;">
+          <h2 id="objTitle" class="h2">Udogodnienia w obiekcie</h2>
+          <div class="chips">
+            <span class="chip">Miejsce postojowe</span>
+            <span class="chip">Plac zabaw</span>
+            <span class="chip">Grill</span>
+          </div>
+        </section>
+
+        <!-- INFORMACJE DODATKOWE -->
+        <section class="infoBox reveal" style="margin-top:14px;">
+          <h2 class="infoBox__title">Informacje dodatkowe</h2>
+          <ul class="bullets">
+            <li><b>Zameldowanie</b> od godziny 15:00</li>
+            <li><b>Wymeldowanie</b> do godziny 10:00</li>
+            <li>Opłata miejscowa (klimatyczna) wliczona w cenę.</li>
+            <li>Opłata serwisowa (sprzątanie) wliczona w cenę.</li>
+            <li><b>Bezwzględny zakaz palenia</b> wewnątrz pokoju.</li>
+            <li>Pokój przyjazny alergikom, nie akceptujemy zwierząt.</li>
+          </ul>
+        </section>
+
+        <!-- CTA (na dole) -->
+        <div class="offerActions reveal" style="margin-top:18px;">
+          <a class="btn2 btn2--primary" href="index.html#kontakt">✉ Zapytaj o dostępność</a>
+          <a class="btn2 btn2--ghost" href="tel:+48XXXXXXXXX">☎ Zadzwoń</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Wiatr &amp; Woda Dębki</p>
+      <a class="footer__link" href="index.html#home">Wróć na górę</a>
+    </div>
+  </footer>
+</body>
+</html>
