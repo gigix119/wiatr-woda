@@ -456,6 +456,15 @@ a{ color: inherit; }
   color: var(--brand);
   text-decoration:none;
 }
+.offer__cta--secondary{
+  margin-left: 16px;
+  padding: 8px 18px;
+  border: 1px solid rgba(30,100,255,0.2);
+  background: rgba(30,100,255,0.06);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
 
 /* =========================
    OFFER CAROUSEL
