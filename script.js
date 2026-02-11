@@ -196,7 +196,7 @@ document.querySelectorAll("[data-carousel]").forEach(carousel => {
   });
 });
 
-// Formularz — walidacja + mailto (bez backendu)
+// Formularz — walidacja + Web3Forms API
 const form = document.getElementById("contactForm");
 const toast = document.getElementById("formToast");
 
@@ -211,15 +211,21 @@ function clearErrors() {
   form?.querySelectorAll(".field__error").forEach(e => e.textContent = "");
 }
 
-function showToast(msg) {
+function showToast(msg, success) {
   if (!toast) return;
   toast.textContent = msg;
-  toast.classList.add("is-open");
+  toast.className = "form__toast is-open" + (success ? " form__toast--success" : "");
   setTimeout(() => toast.classList.remove("is-open"), 6000);
 }
 
+function isValidPhone(phone) {
+  const digits = phone.replace(/[\s\-()]/g, "");
+  // +48 + 9 cyfr lub same 9 cyfr
+  return /^(\+48)?\d{9}$/.test(digits);
+}
+
 if (form) {
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearErrors();
 
@@ -236,7 +242,7 @@ if (form) {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     if (name.length < 2) { ok = false; setError(form.elements.name, "Podaj imię i nazwisko (min. 2 znaki)."); }
-    if (phone.length < 7) { ok = false; setError(form.elements.phone, "Podaj poprawny numer telefonu."); }
+    if (!isValidPhone(phone)) { ok = false; setError(form.elements.phone, "Podaj 9 cyfr (np. 696217652 lub +48 696 217 652)."); }
     if (!emailOk) { ok = false; setError(form.elements.email, "Podaj poprawny adres e-mail."); }
     if (!from) { ok = false; setError(form.elements.from, "Wybierz datę przyjazdu."); }
     if (!to) { ok = false; setError(form.elements.to, "Wybierz datę wyjazdu."); }
@@ -252,27 +258,46 @@ if (form) {
     }
 
     if (!ok) {
-      showToast("Uzupełnij poprawnie formularz 🙂");
+      showToast("Uzupełnij poprawnie formularz.");
       return;
     }
 
-    const subject = encodeURIComponent("Zapytanie o rezerwację – Wiatr & Woda Dębki");
-    const body = encodeURIComponent(
-`Imię i nazwisko: ${name}
-Telefon: ${phone}
-E-mail: ${email}
-Data przyjazdu: ${from}
-Data wyjazdu: ${to}
+    const submitBtn = form.querySelector('[type="submit"]');
+    const btnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Wysyłanie...";
 
-Wiadomość:
-${message}`
-    );
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: fd.get("access_key"),
+          subject: fd.get("subject"),
+          from_name: fd.get("from_name"),
+          name: name,
+          phone: phone,
+          email: email,
+          "Data przyjazdu": from,
+          "Data wyjazdu": to,
+          message: message
+        })
+      });
 
-    const toEmail = "wiatr.woda.debki@gmail.com";
-    window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+      const data = await res.json();
 
-    showToast("Otwieram Twoją aplikację pocztową…");
-    form.reset();
+      if (data.success) {
+        showToast("Wiadomość wysłana! Odezwiemy się wkrótce.", true);
+        form.reset();
+      } else {
+        showToast("Wystąpił błąd. Spróbuj ponownie lub zadzwoń.");
+      }
+    } catch (err) {
+      showToast("Błąd połączenia. Sprawdź internet lub zadzwoń.");
+    }
+
+    submitBtn.disabled = false;
+    submitBtn.textContent = btnText;
   });
 }
 
