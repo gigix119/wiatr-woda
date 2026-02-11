@@ -1527,9 +1527,9 @@ a{ color: inherit; }
 }
 @media(min-width:820px){
   .tile__media:not(.offerCard__media) img{
-    aspect-ratio: 16 / 12;
-    object-fit: cover;
-    min-height: 480px;
+    aspect-ratio: auto;
+    object-fit: initial;
+    height: auto;
   }
 }
 /* ===== REGULAMIN PAGE ===== */
