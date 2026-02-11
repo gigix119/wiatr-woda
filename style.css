@@ -1765,8 +1765,10 @@ a{ color: inherit; }
   text-align: center;
 }
 
-/* Ukrywanie/ pokazywanie "więcej" */
-.chips[data-collapsed="true"] .chip--more{ display: none; }
+/* Ukrywanie/ pokazywanie "więcej" — only on mobile */
+@media (max-width: 819px){
+  .chips[data-collapsed="true"] .chip--more{ display: none; }
+}
 .chips[data-collapsed="false"] .chip--more{ display: inline-flex; }
 
 /* Sekcja amen — wymuś normalny layout na mobilce */
