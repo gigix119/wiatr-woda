@@ -1402,6 +1402,19 @@ a{ color: inherit; }
   padding: 8px 16px;
   border-radius: 999px;
 }
+@media(min-width:820px){
+  .chips{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .chip:nth-child(2n){ border-right: 1px solid rgba(14,23,38,0.06); }
+  .chip:nth-child(3n){ border-right: none; }
+  .chips[data-collapsed="true"] .chip--more{
+    display: flex;
+  }
+  .chips__toggle{
+    display: none;
+  }
+}
 
 /* ====== INFO BOX (was accordion) ====== */
 .infoBox{
@@ -1497,7 +1510,7 @@ a{ color: inherit; }
 }
 @media(min-width:820px){
   .tile__media:not(.offerCard__media) img{
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 3 / 2;
   }
 }
 /* ===== REGULAMIN PAGE ===== */
