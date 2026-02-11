@@ -1525,11 +1525,32 @@ a{ color: inherit; }
   -webkit-user-drag: none;
   cursor: zoom-in;
 }
-@media(min-width:820px){
-  .tile__media:not(.offerCard__media) img{
-    aspect-ratio: auto;
-    object-fit: initial;
-    height: auto;
+/* =========================
+   DESKTOP FIX: slider zdjęć bez ucinania (tylko PC)
+   ========================= */
+@media (min-width: 1024px) {
+  .detail-layout__gallery .offerCard__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 420px;
+    background: rgba(0,0,0,0.04);
+  }
+  .detail-layout__gallery .offerCard__media > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain !important;
+    object-position: center;
+  }
+  .detail-layout__gallery .offerCard__nav {
+    z-index: 3;
+  }
+  .detail-layout__gallery .badge {
+    z-index: 3;
+  }
+  .detail-layout__gallery .offerCard__dots {
+    z-index: 3;
   }
 }
 /* ===== REGULAMIN PAGE ===== */
