@@ -1498,6 +1498,23 @@ a{ color: inherit; }
   user-select: none;
 }
 .tile__media:active{ cursor: grabbing; }
+/* ====== DETAIL PAGE 2-COL LAYOUT (PC) ====== */
+@media(min-width:820px){
+  .detail-layout{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .detail-layout__sidebar{
+    position: sticky;
+    top: 24px;
+  }
+  .detail-layout__sidebar header{
+    margin-top: 0 !important;
+  }
+}
+
 /* Detail page slider only (not offerCard thumbnails) */
 .tile__media:not(.offerCard__media) img{
   width: 100%;
