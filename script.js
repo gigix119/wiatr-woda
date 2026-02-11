@@ -273,14 +273,15 @@ if (form) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_key: fd.get("access_key"),
-          subject: fd.get("subject"),
-          from_name: fd.get("from_name"),
-          name: name,
-          phone: phone,
-          email: email,
+          subject: "Nowe zapytanie od: " + name + " (" + phone + ")",
+          from_name: name,
+          replyto: email,
+          "Imię i nazwisko": name,
+          "Telefon": phone,
+          "E-mail": email,
           "Data przyjazdu": from,
           "Data wyjazdu": to,
-          message: message
+          "Wiadomość": message
         })
       });
 
