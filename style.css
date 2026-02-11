@@ -1773,3 +1773,61 @@ a{ color: inherit; }
     border-bottom: 1px solid rgba(14,23,38,0.10) !important; /* jeśli było “tabelkowo” */
   }
 }
+/* =========================
+   UDOgodnienia – sekcja (fix)
+   ========================= */
+
+.amenSection{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(14,23,38,0.06);
+  padding: 14px;
+}
+
+/* nagłówek + toggle w jednej linii */
+.amenSection > .h2{
+  margin: 0;
+}
+
+.amenSection{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "title toggle"
+    "chips chips";
+  gap: 10px 12px;
+  align-items: center;
+}
+
+.amenSection > .h2{ grid-area: title; }
+.amenSection > .chips__toggle{ grid-area: toggle; margin-top: 0; }
+.amenSection > .chips{ grid-area: chips; margin-top: 0; }
+
+/* chips – normalnie, bez “tabelki” */
+.amenSection .chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+}
+
+/* toggle – estetycznie */
+.amenSection .chips__toggle{
+  white-space: nowrap;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+/* na bardzo wąskich ekranach toggle pod tytułem */
+@media (max-width: 380px){
+  .amenSection{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "toggle"
+      "chips";
+  }
+  .amenSection > .chips__toggle{
+    width: 100%;
+  }
+}
