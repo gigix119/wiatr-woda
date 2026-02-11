@@ -267,6 +267,32 @@ a{ color: inherit; }
 }
 .btn--ghost:hover{ background: rgba(30,100,255,0.06); }
 
+/* "Zobacz ofertę" – only on mobile */
+.btn--offer-mobile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #1E64FF 0%, #6C3AFF 100%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  border-radius: 14px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 18px rgba(30,100,255,0.3);
+  transition: opacity .2s, transform .2s;
+}
+.btn--offer-mobile:hover{
+  opacity: .9;
+  transform: translateY(-1px);
+}
+@media(min-width:680px){
+  .btn--offer-mobile{ display: none; }
+}
+
 .btn--form{
   width: 100%;
 }
