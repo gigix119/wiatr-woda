@@ -1504,7 +1504,14 @@ a{ color: inherit; }
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 32px;
-    align-items: start;
+    align-items: stretch;
+  }
+  .detail-layout__gallery{
+    display: flex;
+    flex-direction: column;
+  }
+  .detail-layout__gallery .tile__media{
+    flex: 1;
   }
   .detail-layout__sidebar{
     position: sticky;
@@ -1528,8 +1535,8 @@ a{ color: inherit; }
 @media(min-width:820px){
   .tile__media:not(.offerCard__media) img{
     aspect-ratio: auto;
-    object-fit: contain;
-    height: auto;
+    object-fit: cover;
+    height: 100%;
   }
 }
 /* ===== REGULAMIN PAGE ===== */
