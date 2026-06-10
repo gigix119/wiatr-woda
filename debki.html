@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Dębki – plaża, Rybaczówka i atrakcje | Wiatr & Woda Dębki</title>
+  <meta name="description" content="Dębki: jedna z najpiękniejszych plaż nad Bałtykiem, Rybaczówka z wieżą widokową, atrakcje i polecany Bar Na Fali. Sprawdź, co warto zobaczyć." />
+  <link rel="canonical" href="https://twojadomena.pl/debki" />
+  <meta name="theme-color" content="#1E64FF" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+
+  <!-- Minimal mobile-first helpers (nie psuje Twojego CSS) -->
+  <style>
+    /* MOBILE FIRST layout – bezpieczne klasy lokalne */
+    .pageHead{ padding: 18px 0 10px; }
+    .pageHead__kicker{ color:var(--muted); margin:0 0 8px; font-weight:700; }
+    .pageHead__title{ margin:0 0 10px; letter-spacing:-0.02em; }
+    .pageHead__lead{ margin:0; color:var(--muted); line-height:1.75; }
+
+    .heroMedia{
+      margin-top:14px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(14,23,38,0.08);
+      background: rgba(0,0,0,0.03);
+    }
+    .heroMedia img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card{
+      background: var(--surface);
+      border:1px solid rgba(14,23,38,0.08);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+    .card h2, .card h3{ margin:0 0 10px; }
+    .card p{ margin:0; color:var(--muted); line-height:1.75; }
+    .card p + p{ margin-top:10px; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(14,23,38,0.10);
+      background: rgba(30,100,255,0.06);
+      color: var(--text);
+      font-weight:700;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .mediaCard{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(14,23,38,0.08);
+      background: rgba(0,0,0,0.03);
+      margin-top:12px;
+    }
+    .mediaCard img{ width:100%; height:auto; display:block; }
+
+    .cta{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .note{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* Desktop enhancement (opcjonalne) – nadal mobile-first */
+    @media (min-width: 1024px){
+      .grid{ grid-template-columns: 1.3fr 0.7fr; gap: 18px; }
+      .cta{ grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+
+  <!-- Schema (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"TouristDestination",
+    "name":"Dębki",
+    "description":"Nadmorska miejscowość z szeroką plażą, Rybaczówką i wieżą widokową.",
+    "touristType":["rodziny","pary","miłośnicy plaży","rowerzyści"],
+    "geo":{"@type":"GeoCoordinates","latitude":54.833,"longitude":18.083},
+    "containedInPlace":{"@type":"AdministrativeArea","name":"Pomorskie"}
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Przejdź do treści</a>
+
+  <!-- TOPBAR (jak u Ciebie) -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="index.html#home" aria-label="Wiatr & Woda – strona główna">
+        <img class="brand__logo" src="assets/hero.png" alt="Wiatr & Woda Dębki" width="64" height="64" />
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja główna">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__bars" aria-hidden="true"></span>
+          <span class="sr-only">Otwórz menu</span>
+        </button>
+
+        <ul id="navMenu" class="nav__menu">
+          <li><a class="nav__link" href="oferta.html">Oferta</a></li>
+          <li><a class="nav__link" href="index.html#galeria">Galeria</a></li>
+          <li><a class="nav__link" href="debki.html" aria-current="page">Dębki</a></li>
+          <li><a class="nav__link" href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <a class="callfab" href="tel:+48696217652" aria-label="Zadzwoń">☎</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+
+        <!-- HEAD -->
+        <header class="pageHead reveal">
+          <p class="pageHead__kicker">🌊 Przewodnik po miejscowości</p>
+          <h1 class="pageHead__title">Dębki – plaża, natura i klimat, do którego się wraca</h1>
+          <p class="pageHead__lead">
+            Są miejsca, które odwiedzasz raz. I są takie, do których wracasz co roku.
+            Dębki są właśnie takie: spokojne, otoczone lasem, z szeroką plażą i prawdziwą nadmorską atmosferą.
+          </p>
+
+          <!-- HERO IMAGE -->
+          <div class="heroMedia">
+            <img src="assets/plaza.jpg" alt="Dębki – szeroka plaża i nadmorski klimat" loading="lazy" decoding="async" width="1400" height="900">
+          </div>
+
+          <div class="chips" aria-label="Najważniejsze atuty Dębek">
+            <span class="chip">🏖 Szeroka plaża</span>
+            <span class="chip">🌲 Lasy i wydmy</span>
+            <span class="chip">🎣 Rybaczówka</span>
+            <span class="chip">🍽 Bar „Na Fali”</span>
+          </div>
+        </header>
+
+        <!-- CONTENT GRID -->
+        <div class="grid">
+
+          <!-- LEWA KOLUMNA -->
+          <article class="card reveal">
+            <h2>Jedna z najpiękniejszych plaż nad Bałtykiem</h2>
+            <p>
+              Plaża w Dębkach jest jasna, szeroka i naturalna. Bez betonowych falochronów i głośnych promenad.
+              Z jednej strony morze, z drugiej las – to połączenie robi różnicę. Latem nawet w sezonie łatwo znaleźć tu
+              miejsce dla siebie.
+            </p>
+            <p>
+              Jeśli szukasz wakacji, gdzie naprawdę odpoczniesz – Dębki potrafią zaskoczyć spokojem i przestrzenią.
+              A zachody słońca? Potrafią wyglądać jak z pocztówki.
+            </p>
+
+            <!-- GALERIA: PLAŻA -->
+            <div class="mediaCard" style="margin-top:12px;">
+              <img src="galeria/plaza/1.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/plaza/2.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/plaza/3.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/plaza/4.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/plaza/5.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <!-- RYBACZÓWKA -->
+          <article class="card reveal">
+            <h2>Rybaczówka w Dębkach</h2>
+            <p>
+              W Dębkach zbudowano dla tutejszych rybaków nowoczesny kompleks „Rybaczówka”, który służy do obsługi przystani rybackiej.
+              To miejsce, gdzie rybacy naprawiają łodzie i sieci, przechowują sprzęt do połowu oraz przygotowują się do wypłynięcia o świcie.
+            </p>
+            <p>
+              Wczesnym rankiem można tu kupić świeżo złowione dorsze, flądry i inne gatunki ryb żyjące w Bałtyku – prosto z kutra.
+            </p>
+
+            <div class="chips" aria-label="Rybaczówka – najważniejsze informacje">
+              <span class="chip">📍 Wejście na plażę nr 19</span>
+              <span class="chip">🗼 Wieża widokowa 20 m</span>
+              <span class="chip">🛗 Winda + schody</span>
+            </div>
+
+            <!-- GALERIA: RYBACZÓWKA -->
+            <div class="mediaCard" style="margin-top:12px;">
+              <img src="galeria/rybaczowka/1.jpg" alt="Rybaczówka w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/rybaczowka/2.jpg" alt="Rybaczówka w Dębkach" loading="lazy" decoding="async">
+            </div>
+
+            <p class="note">
+              <b>Godziny otwarcia:</b><br>
+              sezon letni (lipiec–sierpień): 14:30 – 20:30<br>
+              poza sezonem (weekendy): 11:00 – 17:00<br><br>
+              <b>Lokalizacja:</b> wejście na plażę nr 19, tuż przy plaży po prawej stronie.
+            </p>
+          </article>
+
+          <!-- BAR NA FALI -->
+          <article class="card reveal">
+            <h2>Polecamy: Bar „Na Fali” 🍽</h2>
+            <p>
+              Jeśli chcesz poczuć prawdziwy klimat Dębek – koniecznie odwiedź bar <b>„Na Fali”</b>.
+              To miejsce z charakterem: świeże ryby, domowe obiady i nadmorska atmosfera, bez zbędnego nadęcia.
+            </p>
+            <p>
+              Idealny wybór na obiad po plaży albo spokojną kolację. Tu naprawdę czuć wakacje.
+            </p>
+
+            <!-- GALERIA: NA FALI -->
+            <div class="mediaCard" style="margin-top:12px;">
+              <img src="galeria/na%20fali/1.jpg" alt="Bar Na Fali w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/na%20fali/2.jpg" alt="Bar Na Fali w Dębkach" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaCard" style="margin-top:8px;">
+              <img src="galeria/na%20fali/3.jpg" alt="Bar Na Fali w Dębkach" loading="lazy" decoding="async">
+            </div>
+
+          </article>
+
+          <!-- ATRAKCJE -->
+          <article class="card reveal">
+            <h2>Atrakcje i pomysły na dzień</h2>
+            <p>
+              Dębki to nie tylko plaża. W okolicy znajdziesz sporo opcji na spokojny, aktywny dzień bez tłumów.
+            </p>
+
+            <ul class="bullets" style="margin:10px 0 0; color:var(--muted); line-height:1.75;">
+              <li>🚲 Trasy rowerowe przez lasy i wydmy</li>
+              <li>🛶 Spływy kajakowe rzeką Piaśnicą</li>
+              <li>🌲 Nadmorski Park Krajobrazowy</li>
+              <li>🎣 Przystań rybacka i łodzie na plaży</li>
+              <li>🌅 Zachody słońca na szerokiej plaży</li>
+            </ul>
+
+            <div class="chips" style="margin-top:12px;">
+              <span class="chip">🚗 ok. 50 km do Trójmiasta</span>
+              <span class="chip">🦭 ok. 50 km do fokarium (Hel)</span>
+            </div>
+
+            <div class="mediaCard" style="margin-top:12px;">
+              <img src="galeria/plaza/5.jpg" alt="Okolica Dębek – natura" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+        </div><!-- /grid -->
+
+        <!-- FINAL CTA -->
+        <section class="card reveal" style="margin-top:16px;">
+          <h2>Chcesz odpocząć w Dębkach?</h2>
+          <p>
+            Sprawdź nasze apartamenty w Wiatr &amp; Woda Dębki i zapytaj o dostępność.
+            Odpowiemy szybko i pomożemy dobrać najlepszy termin.
+          </p>
+
+          <div class="cta">
+            <a class="btn2 btn2--primary" href="oferta.html">Zobacz ofertę</a>
+            <a class="btn2 btn2--ghost" href="index.html#kontakt">Napisz do nas</a>
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Wiatr &amp; Woda Dębki</p>
+      <a class="footer__link" href="index.html#home">Wróć na górę</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Wiatr & Woda Dębki – apartamenty i pokoje blisko morza i lasu</title>
+  <meta name="description" content="Wiatr & Woda w Dębkach – komfortowe apartamenty i pokoje blisko morza oraz sosnowego lasu. Zarezerwuj pobyt lub zadzwoń." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://twojadomena.pl/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Wiatr & Woda Dębki – apartamenty i pokoje" />
+  <meta property="og:description" content="Blisko morza i lasu. Komfortowe noclegi w Dębkach." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og.jpg" />
+  <meta name="theme-color" content="#1E64FF" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js?v=2"></script>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LodgingBusiness",
+    "name":"Wiatr & Woda Dębki",
+    "url":"https://twojadomena.pl/",
+    "telephone":"+48696217652",
+    "image":"https://twojadomena.pl/assets/og.jpg",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Rybacka 10",
+      "postalCode":"84-110",
+      "addressLocality":"Dębki",
+      "addressCountry":"PL"
+    },
+    "sameAs":[
+      "https://www.instagram.com/wiatrwodadebki/?hl=de",
+      "https://www.facebook.com/p/Wiatr-Woda-D%C4%99bki-61576469287996/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Przejdź do treści</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home" aria-label="Wiatr & Woda – strona główna">
+        <img class="brand__logo" src="assets/hero.png" alt="Wiatr & Woda Dębki – logo" width="64" height="64" />
+      </a>
+
+      <nav class="nav" aria-label="Nawigacja główna">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__bars" aria-hidden="true"></span>
+          <span class="sr-only">Otwórz menu</span>
+        </button>
+
+        <ul id="navMenu" class="nav__menu">
+          <li><a class="nav__link" href="oferta.html">Oferta</a></li>
+          <li><a class="nav__link" href="#galeria">Galeria</a></li>
+          <li><a class="nav__link" href="debki.html">Dębki</a></li>
+          <li><a class="nav__link" href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <a class="callfab" href="tel:+48696217652" aria-label="Zadzwoń">
+        <span aria-hidden="true">☎</span>
+        <span class="sr-only">Zadzwoń</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__heading">
+          <h1 class="hero__title drop drop--1">Poczuj szum fal i zapach sosnowego lasu</h1>
+          <p class="hero__subtitle drop drop--2">Apartamenty i pokoje w Dębkach blisko morza i lasu</p>
+        </div>
+
+        <figure class="hero__media drop drop--3">
+          <img
+            class="hero__img"
+            src="assets/gallery-1.JPG"
+            alt="Zachód słońca nad morzem w Dębkach"
+            loading="eager"
+            decoding="async"
+            width="1600"
+            height="900"
+          />
+        </figure>
+
+        <div class="hero__cta drop drop--4">
+          <!-- UWAGA: ten przycisk ma iść do formularza, inny anchor niż menu Kontakt -->
+          <a class="btn btn--primary" href="#rezerwuj">Zarezerwuj pobyt</a>
+          <a class="btn btn--ghost" href="tel:+48696217652">Zadzwoń</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card-section">
+      <div class="container">
+        <article class="card reveal" data-delay="0.05">
+          <h2 class="card__title">Wiatr &amp; Woda</h2>
+          <p class="card__lead">Twoim miejscem na niezapomniane chwile w Dębkach!</p>
+
+          <div class="card__divider" aria-hidden="true"></div>
+
+          <p class="card__text">
+            Odkryj piękno polskiego wybrzeża, odpoczywając na szerokiej, piaszczystej plaży
+            czy spacerując po lesie Nadmorskiego Parku Krajobrazowego.
+          </p>
+          <p class="card__text">
+            Nasz obiekt został wybudowany w 2025 roku i jest położony w bardzo dobrej lokalizacji –
+            przy cichej ulicy Rybackiej, blisko morza i centrum.
+          </p>
+
+          <a class="card__link" href="#oferta">Odwiedź nas i poczuj nadmorski klimat – czekamy na Ciebie przez cały rok!</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- AMENITIES (ładne kafle jak w figmie/screenie) -->
+    <section class="amenities">
+      <div class="container">
+        <h2 class="section__title reveal">Co oferujemy?</h2>
+
+        <div class="amenities__grid">
+          <article class="amenity reveal" data-delay="0.05">
+            <div class="amenity__icon" aria-hidden="true">📶</div>
+            <h3 class="amenity__title">Bezpłatne Wi-Fi</h3>
+            <p class="amenity__text">Szybki internet w całym obiekcie.</p>
+          </article>
+
+          <article class="amenity reveal" data-delay="0.10">
+            <div class="amenity__icon" aria-hidden="true">🛝</div>
+            <h3 class="amenity__title">Dla dzieci</h3>
+            <p class="amenity__text">Plac zabaw ze zjeżdżalnią — miejsce przyjazne rodzinom.</p>
+          </article>
+
+          <article class="amenity reveal" data-delay="0.15">
+            <div class="amenity__icon" aria-hidden="true">🐾</div>
+            <h3 class="amenity__title">Akceptujemy zwierzęta</h3>
+            <p class="amenity__text">Zabierz pupila na urlop.</p>
+          </article>
+
+          <article class="amenity reveal" data-delay="0.20">
+            <div class="amenity__icon" aria-hidden="true">🚗</div>
+            <h3 class="amenity__title">Bezpłatny parking</h3>
+            <p class="amenity__text">Wygodne miejsce dla gości.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" class="section">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal">Oferta</h2>
+          <p class="section__text reveal" data-delay="0.08">
+            Komfortowe noclegi blisko morza i lasu. Zakres cen: <strong>150–750 zł</strong> / doba (w zależności od terminu i typu pokoju).
+          </p>
+        </header>
+
+        <div class="offer__grid">
+          <article class="offer reveal" data-delay="0.05">
+            <div class="offer__carousel" data-carousel>
+              <div class="carousel__track">
+                <img class="carousel__slide" src="galeria/ap%20nr%203/1.JPG" alt="Apartament – widok główny" loading="lazy" />
+                <img class="carousel__slide" src="galeria/ap%20nr%203/2.JPG" alt="Apartament – wnętrze" loading="lazy" />
+                <img class="carousel__slide" src="galeria/ap%20nr%203/3.JPG" alt="Apartament – łazienka" loading="lazy" />
+                <img class="carousel__slide" src="galeria/ap%20nr%203/4.JPG" alt="Apartament – balkon" loading="lazy" />
+              </div>
+              <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+              <button class="carousel__btn carousel__btn--next" type="button" aria-label="Następne zdjęcie">›</button>
+              <div class="carousel__dots"></div>
+            </div>
+            <div class="offer__top">
+              <h3 class="offer__title">Apartament 4 os.</h3>
+              <span class="offer__price">250–750 zł</span>
+            </div>
+            <p class="offer__desc">
+              Luksusowy apartament w Dębkach – nowoczesny standard, świetna baza wypadowa na Hel i okolicę.
+            </p>
+            <ul class="offer__list">
+              <li>Metraż: 34–40 m²</li>
+              <li>Łóżko + sofa / aneks</li>
+              <li>Blisko plaży i lasu</li>
+              <li>Wysoki standard</li>
+            </ul>
+            <div class="offer__ctas">
+              <a class="offer__cta" href="oferta.html">Zobacz ofertę</a>
+              <a class="offer__cta offer__cta--secondary" href="#rezerwuj">Zapytaj o termin</a>
+            </div>
+          </article>
+
+          <article class="offer reveal" data-delay="0.10">
+            <div class="offer__carousel" data-carousel>
+              <div class="carousel__track">
+                <img class="carousel__slide" src="galeria/pok%C3%B3j%20nr1/1.JPG" alt="Pokój – widok główny" loading="lazy" />
+                <img class="carousel__slide" src="galeria/pok%C3%B3j%20nr1/2.JPG" alt="Pokój – wnętrze" loading="lazy" />
+                <img class="carousel__slide" src="galeria/pok%C3%B3j%20nr1/3.JPG" alt="Pokój – łazienka" loading="lazy" />
+              </div>
+              <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+              <button class="carousel__btn carousel__btn--next" type="button" aria-label="Następne zdjęcie">›</button>
+              <div class="carousel__dots"></div>
+            </div>
+            <div class="offer__top">
+              <h3 class="offer__title">Pokój 2 os.</h3>
+              <span class="offer__price">150–300 zł</span>
+            </div>
+            <p class="offer__desc">
+              Wygodny pokój dla par – idealny na spokojny weekend i dłuższy urlop.
+            </p>
+            <ul class="offer__list">
+              <li>Metraż: 18–23 m²</li>
+              <li>Komfort i cisza</li>
+              <li>Wi-Fi, parking</li>
+              <li>Blisko centrum</li>
+            </ul>
+            <div class="offer__ctas">
+              <a class="offer__cta" href="oferta.html#pokoje">Zobacz ofertę</a>
+              <a class="offer__cta offer__cta--secondary" href="#rezerwuj">Zapytaj o termin</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="section section--alt">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal">Galeria</h2>
+          <p class="section__text reveal" data-delay="0.08">Kliknij zdjęcie, aby powiększyć.</p>
+        </header>
+
+        <div class="gallery">
+          <button class="gallery__item reveal" data-delay="0.04" type="button"
+            data-full="assets/dom.jpg" aria-label="Otwórz zdjęcie – budynek">
+            <img src="assets/dom.jpg" alt="Budynek Wiatr & Woda" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.08" type="button"
+            data-full="assets/grill.jpg" aria-label="Otwórz zdjęcie – grill">
+            <img src="assets/grill.jpg" alt="Strefa grillowa" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.12" type="button"
+            data-full="assets/ogrod.jpg" aria-label="Otwórz zdjęcie – ogród">
+            <img src="assets/ogrod.jpg" alt="Ogród" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.16" type="button"
+            data-full="assets/plac.jpg" aria-label="Otwórz zdjęcie – plac zabaw">
+            <img src="assets/plac.jpg" alt="Plac zabaw" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.20" type="button"
+            data-full="assets/zabaw.jpg" aria-label="Otwórz zdjęcie – strefa zabaw">
+            <img src="assets/zabaw.jpg" alt="Strefa zabaw dla dzieci" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.24" type="button"
+            data-full="galeria/ap%20nr%203/1.JPG" aria-label="Otwórz zdjęcie – apartament nr 3">
+            <img src="galeria/ap%20nr%203/1.JPG" alt="Apartament numer 3" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.28" type="button"
+            data-full="galeria/ap%20nr%205/1.JPG" aria-label="Otwórz zdjęcie – apartament nr 5">
+            <img src="galeria/ap%20nr%205/1.JPG" alt="Apartament numer 5" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.32" type="button"
+            data-full="galeria/pok%C3%B3j%20nr1/1.JPG" aria-label="Otwórz zdjęcie – pokój nr 1">
+            <img src="galeria/pok%C3%B3j%20nr1/1.JPG" alt="Pokój numer 1" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.36" type="button"
+            data-full="assets/gallery-1.JPG" aria-label="Otwórz zdjęcie – zachód słońca">
+            <img src="assets/gallery-1.JPG" alt="Zachód słońca nad morzem" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.40" type="button"
+            data-full="assets/gallery-2.jpg" aria-label="Otwórz zdjęcie – plaża">
+            <img src="assets/gallery-2.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.44" type="button"
+            data-full="assets/gallery-3.jpg" aria-label="Otwórz zdjęcie – okolica">
+            <img src="assets/gallery-3.jpg" alt="Okolica i natura" loading="lazy" decoding="async">
+          </button>
+
+          <button class="gallery__item reveal" data-delay="0.48" type="button"
+            data-full="assets/plaza.jpg" aria-label="Otwórz zdjęcie – plaża w Dębkach">
+            <img src="assets/plaza.jpg" alt="Plaża w Dębkach" loading="lazy" decoding="async">
+          </button>
+        </div>
+      </div>
+
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox" aria-hidden="true">
+        <div class="lightbox__backdrop" data-close></div>
+        <div class="lightbox__panel" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+          <button class="lightbox__close" type="button" data-close aria-label="Zamknij">✕</button>
+          <img class="lightbox__img" id="lightboxImg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <!-- DĘBKI -->
+    <section id="debki" class="section">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal">Dębki</h2>
+          <p class="section__text reveal" data-delay="0.08">
+            Spokojna nadmorska miejscowość z szeroką plażą, sosnowym lasem i świetnym klimatem na odpoczynek.
+          </p>
+        </header>
+
+        <div class="place">
+          <article class="place__card reveal" data-delay="0.10">
+            <h3 class="place__title">Lokalizacja</h3>
+            <p class="place__text">
+              Rybacka 10, Dębki — blisko morza, lasu i centrum. Idealnie na spacery, rowery i wypady w okolice Helu.
+            </p>
+
+            <div class="place__chips" aria-label="Najważniejsze atuty">
+              <span class="chip">🌊 Blisko plaży</span>
+              <span class="chip">🌲 Las sosnowy</span>
+              <span class="chip">🅿️ Parking</span>
+              <span class="chip">📶 Wi-Fi</span>
+            </div>
+          </article>
+
+          <div class="place__map reveal" data-delay="0.16">
+            <iframe
+              title="Mapa – Wiatr & Woda Dębki"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2298.2120395886245!2d18.088144624892266!3d54.8289598694706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fdcca10a7a63cd%3A0x8e37ebe6c2f4a592!2sRybacka%2010%2C%2084-110%20D%C4%99bki!5e0!3m2!1spl!2spl!4v1770332248834!5m2!1spl!2spl"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="section section--contact">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title reveal">Kontakt</h2>
+          <p class="section__text reveal" data-delay="0.08">
+            Zadzwoń lub wyślij wiadomość — wrócimy z odpowiedzią najszybciej jak się da.
+          </p>
+        </header>
+
+        <div class="contact">
+          <aside class="contact__info reveal" data-delay="0.10">
+            <div class="infoCard">
+              <h3 class="infoCard__title">Wiatr &amp; Woda Dębki</h3>
+              <p class="infoCard__row">
+                <span aria-hidden="true">📍</span>
+                Rybacka 10, 84-110 Dębki
+              </p>
+              <p class="infoCard__row">
+                <span aria-hidden="true">☎️</span>
+                <a href="tel:+48696217652">+48 696 217 652</a>
+              </p>
+              <p class="infoCard__row">
+                <span aria-hidden="true">✉️</span>
+                <a href="mailto:wiatr.woda.debki@gmail.com">wiatr.woda.debki@gmail.com</a>
+              </p>
+
+              <div class="social">
+                <a class="social__btn" href="https://www.instagram.com/wiatrwodadebki/?hl=de" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <span class="social__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><radialGradient id="ig" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient><rect width="22" height="22" x="1" y="1" rx="6" stroke="url(#ig)" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="url(#ig)" stroke-width="2"/><circle cx="18" cy="6" r="1.5" fill="url(#ig)"/></svg></span>
+                  Instagram
+                </a>
+
+                <a class="social__btn" href="https://www.facebook.com/p/Wiatr-Woda-D%C4%99bki-61576469287996/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <span class="social__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.026 4.388 11.025 10.125 11.927v-8.437H7.078v-3.49h3.047V9.41c0-3.026 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.971H15.83c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796v8.437C19.612 23.098 24 18.1 24 12.073z"/></svg></span>
+                  Facebook
+                </a>
+              </div>
+
+            </div>
+          </aside>
+
+          <!-- Ten anchor to cel dla przycisku "Zarezerwuj pobyt" -->
+          <div class="contact__formWrap reveal" data-delay="0.14">
+            <div id="rezerwuj" class="anchor" aria-hidden="true"></div>
+
+            <form class="form" id="contactForm" novalidate>
+              <input type="hidden" name="access_key" value="3c6d5927-f647-4b9e-9339-01b4519ad173">
+              <input type="hidden" name="subject" value="Nowe zapytanie o rezerwację – Wiatr & Woda Dębki">
+              <input type="hidden" name="from_name" value="Formularz Wiatr & Woda">
+              <div class="form__head">
+                <h3 class="form__title">Zapytanie o rezerwację</h3>
+                <p class="form__sub">Wypełnij formularz — odezwiemy się z dostępnością i propozycją.</p>
+              </div>
+
+              <div class="form__grid">
+                <label class="field">
+                  <span class="field__label">Imię i nazwisko</span>
+                  <input class="field__input" name="name" type="text" placeholder="np. Jan Kowalski" autocomplete="name" required minlength="2" />
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+
+                <label class="field">
+                  <span class="field__label">Telefon</span>
+                  <input class="field__input" name="phone" type="tel" placeholder="np. +48 123 456 789" autocomplete="tel" required minlength="7" />
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+
+                <label class="field field--full">
+                  <span class="field__label">E-mail</span>
+                  <input class="field__input" name="email" type="email" placeholder="np. kontakt@email.pl" autocomplete="email" required />
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+
+                <label class="field">
+                  <span class="field__label">Data przyjazdu</span>
+                  <input class="field__input" name="from" type="date" required />
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+
+                <label class="field">
+                  <span class="field__label">Data wyjazdu</span>
+                  <input class="field__input" name="to" type="date" required />
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+
+                <label class="field field--full">
+                  <span class="field__label">Wiadomość</span>
+                  <textarea class="field__input field__textarea" name="message" rows="5" placeholder="Napisz ile osób, preferencje (apartament/pokój), dodatkowe pytania..." required minlength="10"></textarea>
+                  <span class="field__error" aria-live="polite"></span>
+                </label>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--primary btn--form" type="submit">
+                  Wyślij zapytanie
+                </button>
+
+                <p class="form__hint">
+                  Odpowiadamy najczęściej w ciągu kilku godzin.
+                </p>
+              </div>
+
+              <div class="form__toast" id="formToast" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Wiatr &amp; Woda Dębki</p>
+      <a class="footer__link" href="regulamin.html">Regulamin</a>
+      <a class="footer__link" href="#home">Wróć na górę</a>
+    </div>
+  </footer>
+</body>
+</html>
